@@ -12,25 +12,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
-        $this->call(BannersTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(TagsTableSeeder::class);
-        $this->call(NewsTableSeeder::class);
-        $this->call(CategorynewsTableSeeder::class);
-        $this->call(NewstagsTableSeeder::class);
-        $this->call(VideosTableSeeder::class);
-        $this->call(CategorygalleryTableSeeder::class);
-        $this->call(GalleriesTableSeeder::class);
-        $this->call(PositionsTableSeeder::class);
-        $this->call(StadiumsTableSeeder::class);
-        $this->call(TournamentsTableSeeder::class);
-        $this->call(TeamsTableSeeder::class);
-        $this->call(ColorsTableSeeder::class);
-        $this->call(PlayersTableSeeder::class);
-        $this->call(DaysTableSeeder::class);
-        $this->call(MatchesTableSeeder::class);
-        $this->call(MatchesteamsTableSeeder::class);
-        $this->call(VisitsTableSeeder::class);
-        $this->call(SettingsTableSeeder::class);
+        $this->call(ProvincesTableSeeder::class);
+        $this->call(CityTableSeeder::class);
+        $this->call(CompaniesSeederTable::class);
+        $this->call(PoolsSeederTable::class);
+        $this->call(ContractsSeederTable::class);
+        $this->call(ServicesSeederTable::class);
+        $this->call(CategoriesSeederTable::class);
+        $this->call(HouseholdsSeederTable::class);
+        $this->call(HouseholdPhotosSeederTable::class);
+        $this->call(BanksSeederTable::class);
+        $this->call(BusinessSeederTable::class);
+        $this->call(EmployeesSeederTable::class);
+        $this->call(OpinionsSeederTable::class);
+        $this->call(SectionsSeederTable::class);
+        
     }
 }

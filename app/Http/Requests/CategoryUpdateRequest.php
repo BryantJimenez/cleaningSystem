@@ -11,9 +11,9 @@ class CategoryUpdateRequest extends FormRequest
      *
      * @return bool
      */
-   public function authorize()
+    public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:2|max:191'
+            //
         ];
     }
 }

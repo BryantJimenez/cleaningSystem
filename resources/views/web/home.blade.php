@@ -211,7 +211,7 @@
                     <div class="icon-quote">
                         <span class="icon-quote-left"></span>
                     </div>
-                    <p class="mb-4">Gracias al esfuerzo de la familia hemos podido hacernos de otra casa en la playa, asi que vamos a pasar casi todo el verano con los niños, sin embargo en invierno simepre estoy preocupada si por si algo le falla a la casa como el aire acondicionado o las calderas, una amiga me recomendo los servicios de <strong>Cuidamos tu casa</strong> y sinceramente en el invierno estamos mas tarnquilos de nuestra casa de la playa .</p>
+                    <p class="mb-4">Gracias al esfuerzo de la familia hemos podido hacernos de otra casa en la playa, asi que vamos a pasar casi todo el verano con los niños, sin embargo en invierno simepre estoy preocupada si por si algo le falla a la casa como el aire acondicionado o las calderas, una amiga me recomendo los servicios de <strong>Cuidamos tu casa</strong> y sinceramente en el invierno estamos mas tarnquilos de nuestra casa de la playa.</p>
                     <p class="name">Carmen Núñez</p>
                     <span class="position">Cliente Satisfecho</span>
                 </div>
@@ -229,7 +229,7 @@
     <div class="row justify-content-center mb-5 pb-5">
       <div class="col-md-7 heading-section text-center ftco-animate">
         <span class="subheading">Viviendas</span>
-        <h2 class="mb-4">Todas nuestras disponibles</h2>
+        <h2 class="mb-4">Todas nuestras Viviendas disponibles</h2>
         <p>Si te interesa comprar, vender o alquilar alguna vivienda, estas en la sección correcta.</p>
     </div>
 </div>

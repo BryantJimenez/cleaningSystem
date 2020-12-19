@@ -57,6 +57,147 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/administradores/{slug}', 'AdministratorController@update')->name('administradores.update');
 	Route::put('/admin/administradores/{slug}/activar', 'AdministratorController@activate')->name('administradores.activate');
 	Route::put('/admin/administradores/{slug}/desactivar', 'AdministratorController@deactivate')->name('administradores.deactivate');
+
+	//Bancos
+	Route::get('/admin/bancos', 'BankController@index')->name('bancos.index');
+	Route::get('/admin/bancos/registrar', 'BankController@create')->name('bancos.create');
+	Route::post('/admin/bancos', 'BankController@store')->name('bancos.store');
+	Route::get('/admin/bancos/{slug}', 'BankController@show')->name('bancos.show');
+	Route::get('/admin/bancos/{slug}/editar', 'BankController@edit')->name('bancos.edit');
+	Route::put('/admin/bancos/{slug}', 'BankController@update')->name('bancos.update');
+	Route::put('/admin/bancos/{slug}/activar', 'BankController@activate')->name('bancos.activate');
+	Route::put('/admin/bancos/{slug}/desactivar', 'BankController@deactivate')->name('bancos.deactivate');
+
+	//Empresas
+	Route::get('/admin/empresas', 'BusinessController@index')->name('empresas.index');
+	Route::get('/admin/empresas/registrar', 'BusinessController@create')->name('empresas.create');
+	Route::post('/admin/empresas', 'BusinessController@store')->name('empresas.store');
+	Route::get('/admin/empresas/{slug}', 'BusinessController@show')->name('empresas.show');
+	Route::get('/admin/empresas/{slug}/editar', 'BusinessController@edit')->name('empresas.edit');
+	Route::put('/admin/empresas/{slug}', 'BusinessController@update')->name('empresas.update');
+	Route::put('/admin/empresas/{slug}/activar', 'BusinessController@activate')->name('empresas.activate');
+	Route::put('/admin/empresas/{slug}/desactivar', 'BusinessController@deactivate')->name('empresas.deactivate');
+
+	//Categorias
+	Route::get('/admin/categorias', 'CategoryController@index')->name('categorias.index');
+	Route::get('/admin/categorias/registrar', 'CategoryController@create')->name('categorias.create');
+	Route::post('/admin/categorias', 'CategoryController@store')->name('categorias.store');
+	Route::get('/admin/categorias/{slug}', 'CategoryController@show')->name('categorias.show');
+	Route::get('/admin/categorias/{slug}/editar', 'CategoryController@edit')->name('categorias.edit');
+	Route::put('/admin/categorias/{slug}', 'CategoryController@update')->name('categorias.update');
+	Route::put('/admin/categorias/{slug}/activar', 'CategoryController@activate')->name('categorias.activate');
+	Route::put('/admin/categorias/{slug}/desactivar', 'CategoryController@deactivate')->name('categorias.deactivate');
+
+	//Poblaciones
+	Route::get('/admin/ciudades', 'CityController@index')->name('ciudades.index');
+	Route::get('/admin/ciudades/registrar', 'CityController@create')->name('ciudades.create');
+	Route::post('/admin/ciudades', 'CityController@store')->name('ciudades.store');
+	Route::get('/admin/ciudades/{slug}', 'CityController@show')->name('ciudades.show');
+	Route::get('/admin/ciudades/{slug}/editar', 'CityController@edit')->name('ciudades.edit');
+	Route::put('/admin/ciudades/{slug}', 'CityController@update')->name('ciudades.update');
+	Route::put('/admin/ciudades/{slug}/activar', 'CityController@activate')->name('ciudades.activate');
+	Route::put('/admin/ciudades/{slug}/desactivar', 'CityController@deactivate')->name('ciudades.deactivate');
+
+	//Compañias
+	Route::get('/admin/companias', 'CompanyController@index')->name('companias.index');
+	Route::get('/admin/companias/registrar', 'CompanyController@create')->name('companias.create');
+	Route::post('/admin/companias', 'CompanyController@store')->name('companias.store');
+	Route::get('/admin/companias/{slug}', 'CompanyController@show')->name('companias.show');
+	Route::get('/admin/companias/{slug}/editar', 'CompanyController@edit')->name('companias.edit');
+	Route::put('/admin/companias/{slug}', 'CompanyController@update')->name('companias.update');
+	Route::put('/admin/companias/{slug}/activar', 'CompanyController@activate')->name('companias.activate');
+	Route::put('/admin/companias/{slug}/desactivar', 'CompanyController@deactivate')->name('companias.deactivate');
+
+	//Contatos
+
+	Route::get('/admin/contratos', 'ContractController@index')->name('contratos.index');
+	Route::get('/admin/contratos/registrar', 'ContractController@create')->name('contratos.create');
+	Route::post('/admin/contratos', 'ContractController@store')->name('contratos.store');
+	Route::get('/admin/contratos/{slug}', 'ContractController@show')->name('contratos.show');
+	Route::get('/admin/contratos/{slug}/editar', 'ContractController@edit')->name('contratos.edit');
+	Route::put('/admin/contratos/{slug}', 'ContractController@update')->name('contratos.update');
+	Route::put('/admin/contratos/{slug}/activar', 'ContractController@activate')->name('contratos.activate');
+	Route::put('/admin/contratos/{slug}/desactivar', 'ContractController@deactivate')->name('contratos.deactivate');
+
+	//Empleados
+	Route::get('/admin/empleados', 'EmployeeController@index')->name('empleados.index');
+	Route::get('/admin/empleados/registrar', 'EmployeeController@create')->name('empleados.create');
+	Route::post('/admin/empleados', 'EmployeeController@store')->name('empleados.store');
+	Route::get('/admin/empleados/{slug}', 'EmployeeController@show')->name('empleados.show');
+	Route::get('/admin/empleados/{slug}/editar', 'EmployeeController@edit')->name('empleados.edit');
+	Route::put('/admin/empleados/{slug}', 'EmployeeController@update')->name('empleados.update');
+	Route::put('/admin/empleados/{slug}/activar', 'EmployeeController@activate')->name('empleados.activate');
+	Route::put('/admin/empleados/{slug}/desactivar', 'EmployeeController@deactivate')->name('empleados.deactivate');
+
+	//Viviendas
+	Route::get('/admin/viviendas', 'HouseholdController@index')->name('viviendas.index');
+	Route::get('/admin/viviendas/registrar', 'HouseholdController@create')->name('viviendas.create');
+	Route::post('/admin/viviendas', 'HouseholdController@store')->name('viviendas.store');
+	Route::get('/admin/viviendas/{slug}', 'HouseholdController@show')->name('viviendas.show');
+	Route::get('/admin/viviendas/{slug}/editar', 'HouseholdController@edit')->name('viviendas.edit');
+	Route::put('/admin/viviendas/{slug}', 'HouseholdController@update')->name('viviendas.update');
+	Route::put('/admin/viviendas/{slug}/activar', 'HouseholdController@activate')->name('viviendas.activate');
+	Route::put('/admin/viviendas/{slug}/desactivar', 'HouseholdController@deactivate')->name('viviendas.deactivate');
+
+	//Opiniones
+	Route::get('/admin/opiniones', 'OpinionController@index')->name('opiniones.index');
+	Route::get('/admin/opiniones/registrar', 'OpinionController@create')->name('opiniones.create');
+	Route::post('/admin/opiniones', 'OpinionController@store')->name('opiniones.store');
+	Route::get('/admin/opiniones/{slug}', 'OpinionController@show')->name('opiniones.show');
+	Route::get('/admin/opiniones/{slug}/editar', 'OpinionController@edit')->name('opiniones.edit');
+	Route::put('/admin/opiniones/{slug}', 'OpinionController@update')->name('opiniones.update');
+	Route::put('/admin/opiniones/{slug}/activar', 'OpinionController@activate')->name('opiniones.activate');
+	Route::put('/admin/opiniones/{slug}/desactivar', 'OpinionController@deactivate')->name('opiniones.deactivate');
+
+	//Pagos
+	Route::get('/admin/pagos', 'PaymentController@index')->name('pagos.index');
+	Route::get('/admin/pagos/registrar', 'PaymentController@create')->name('pagos.create');
+	Route::post('/admin/pagos', 'PaymentController@store')->name('pagos.store');
+	Route::get('/admin/pagos/{slug}', 'PaymentController@show')->name('pagos.show');
+	Route::get('/admin/pagos/{slug}/editar', 'PaymentController@edit')->name('pagos.edit');
+	Route::put('/admin/pagos/{slug}', 'PaymentController@update')->name('pagos.update');
+	Route::put('/admin/pagos/{slug}/activar', 'PaymentController@activate')->name('pagos.activate');
+	Route::put('/admin/pagos/{slug}/desactivar', 'PaymentController@deactivate')->name('pagos.deactivate');
+
+	//Piscinas
+	Route::get('/admin/piscinas', 'PoolController@index')->name('piscinas.index');
+	Route::get('/admin/piscinas/registrar', 'PoolController@create')->name('piscinas.create');
+	Route::post('/admin/piscinas', 'PoolController@store')->name('piscinas.store');
+	Route::get('/admin/piscinas/{slug}', 'PoolController@show')->name('piscinas.show');
+	Route::get('/admin/piscinas/{slug}/editar', 'PoolController@edit')->name('piscinas.edit');
+	Route::put('/admin/piscinas/{slug}', 'PoolController@update')->name('piscinas.update');
+	Route::put('/admin/piscinas/{slug}/activar', 'PoolController@activate')->name('piscinas.activate');
+	Route::put('/admin/piscinas/{slug}/desactivar', 'PoolController@deactivate')->name('piscinas.deactivate');
+
+	//Provincias
+	Route::get('/admin/provincias', 'ProvinceController@index')->name('provincias.index');
+	Route::get('/admin/provincias/registrar', 'ProvinceController@create')->name('provincias.create');
+	Route::post('/admin/provincias', 'ProvinceController@store')->name('provincias.store');
+	Route::get('/admin/provincias/{slug}', 'ProvinceController@show')->name('provincias.show');
+	Route::get('/admin/provincias/{slug}/editar', 'ProvinceController@edit')->name('provincias.edit');
+	Route::put('/admin/provincias/{slug}', 'ProvinceController@update')->name('provincias.update');
+	Route::put('/admin/provincias/{slug}/activar', 'ProvinceController@activate')->name('provincias.activate');
+	Route::put('/admin/provincias/{slug}/desactivar', 'ProvinceController@deactivate')->name('provincias.deactivate');
+
+	//Secciones
+	Route::get('/admin/secciones', 'SectionController@index')->name('secciones.index');
+	Route::get('/admin/secciones/registrar', 'SectionController@create')->name('secciones.create');
+	Route::post('/admin/secciones', 'SectionController@store')->name('secciones.store');
+	Route::get('/admin/secciones/{slug}', 'SectionController@show')->name('secciones.show');
+	Route::get('/admin/secciones/{slug}/editar', 'SectionController@edit')->name('secciones.edit');
+	Route::put('/admin/secciones/{slug}', 'SectionController@update')->name('secciones.update');
+	Route::put('/admin/secciones/{slug}/activar', 'SectionController@activate')->name('secciones.activate');
+	Route::put('/admin/secciones/{slug}/desactivar', 'SectionController@deactivate')->name('secciones.deactivate');
+
+	//Servicios
+	Route::get('/admin/servicios', 'ServiceController@index')->name('servicios.index');
+	Route::get('/admin/servicios/registrar', 'ServiceController@create')->name('servicios.create');
+	Route::post('/admin/servicios', 'ServiceController@store')->name('servicios.store');
+	Route::get('/admin/servicios/{slug}', 'ServiceController@show')->name('servicios.show');
+	Route::get('/admin/servicios/{slug}/editar', 'ServiceController@edit')->name('servicios.edit');
+	Route::put('/admin/servicios/{slug}', 'ServiceController@update')->name('servicios.update');
+	Route::put('/admin/servicios/{slug}/activar', 'ServiceController@activate')->name('servicios.activate');
+	Route::put('/admin/servicios/{slug}/desactivar', 'ServiceController@deactivate')->name('servicios.deactivate');
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -66,142 +207,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::delete('/admin/usuarios/{slug}', 'UserController@destroy')->name('usuarios.delete');
 	Route::put('/admin/usuarios/{slug}/activar', 'UserController@activate')->name('usuarios.activate');
 	Route::put('/admin/usuarios/{slug}/desactivar', 'UserController@deactivate')->name('usuarios.deactivate');
-
-	// Categorías de Noticias
-	Route::get('/admin/categorias', 'CategoryController@index')->name('categorias.index');
-	Route::get('/admin/categorias/registrar', 'CategoryController@create')->name('categorias.create');
-	Route::post('/admin/categorias', 'CategoryController@store')->name('categorias.store');
-	Route::get('/admin/categorias/{slug}/editar', 'CategoryController@edit')->name('categorias.edit');
-	Route::put('/admin/categorias/{slug}', 'CategoryController@update')->name('categorias.update');
-	Route::delete('/admin/categorias/{slug}', 'CategoryController@destroy')->name('categorias.delete');
-
-	// Noticias
-	Route::get('/admin/noticias', 'NewController@index')->name('noticias.index');
-	Route::get('/admin/noticias/registrar', 'NewController@create')->name('noticias.create');
-	Route::post('/admin/noticias', 'NewController@store')->name('noticias.store');
-	Route::get('/admin/noticias/{slug}/editar', 'NewController@edit')->name('noticias.edit');
-	Route::put('/admin/noticias/{slug}', 'NewController@update')->name('noticias.update');
-	Route::delete('/admin/noticias/{slug}', 'NewController@destroy')->name('noticias.delete');
-	Route::put('/admin/noticias/{slug}/activar', 'NewController@activate')->name('noticias.activate');
-	Route::put('/admin/noticias/{slug}/desactivar', 'NewController@deactivate')->name('noticias.deactivate');
-
-	//Visitas
-	Route::get('/admin/visitas', 'VisitController@index')->name('visitas.index');
-	Route::post('/admin/visitas', 'VisitController@data')->name('visitas.data');
-
-	// Comentarios
-	Route::get('/admin/comentarios', 'CommentController@index')->name('comentarios.index');
-	Route::delete('/admin/comentarios/{slug}', 'CommentController@destroy')->name('comentarios.delete');
-	Route::put('/admin/comentarios/{slug}/activar', 'CommentController@activate')->name('comentarios.activate');
-	Route::put('/admin/comentarios/{slug}/desactivar', 'CommentController@deactivate')->name('comentarios.deactivate');
-	Route::put('/admin/comentarios/usuarios/{slug}/activar', 'CommentController@userActivate')->name('comentarios.usuarios.activate');
-	Route::put('/admin/comentarios/usuarios/{slug}/desactivar', 'CommentController@userDeactivate')->name('comentarios.usuarios.deactivate');
-
-	// Videos
-	Route::get('/admin/videos', 'VideoController@index')->name('videos.index');
-	Route::get('/admin/videos/registrar', 'VideoController@create')->name('videos.create');
-	Route::post('/admin/videos', 'VideoController@store')->name('videos.store');
-	Route::get('/admin/videos/{slug}/editar', 'VideoController@edit')->name('videos.edit');
-	Route::put('/admin/videos/{slug}', 'VideoController@update')->name('videos.update');
-	Route::delete('/admin/videos/{slug}', 'VideoController@destroy')->name('videos.delete');
-	Route::put('/admin/videos/{slug}/activar', 'VideoController@activate')->name('videos.activate');
-	Route::put('/admin/videos/{slug}/desactivar', 'VideoController@deactivate')->name('videos.deactivate');
-
-	// Categorias de Galeria
-	Route::get('/admin/galeria/categorias', 'CategoryGalleryController@index')->name('galerias.categorias.index');
-	Route::get('/admin/galeria/categorias/registrar', 'CategoryGalleryController@create')->name('galerias.categorias.create');
-	Route::post('/admin/galeria/categorias', 'CategoryGalleryController@store')->name('galerias.categorias.store');
-	Route::get('/admin/galeria/categorias/{slug}/editar', 'CategoryGalleryController@edit')->name('galerias.categorias.edit');
-	Route::put('/admin/galeria/categorias/{slug}', 'CategoryGalleryController@update')->name('galerias.categorias.update');
-	Route::delete('/admin/galeria/categorias/{slug}', 'CategoryGalleryController@destroy')->name('galerias.categorias.delete');
-
-	// Galerias
-	Route::get('/admin/galeria', 'GalleryController@index')->name('galerias.index');
-	Route::get('/admin/galeria/registrar', 'GalleryController@create')->name('galerias.create');
-	Route::post('/admin/galeria', 'GalleryController@store')->name('galerias.store');
-	Route::get('/admin/galeria/{slug}/editar', 'GalleryController@edit')->name('galerias.edit');
-	Route::put('/admin/galeria/{slug}', 'GalleryController@update')->name('galerias.update');
-	Route::delete('/admin/galeria/{slug}', 'GalleryController@destroy')->name('galerias.delete');
-	Route::put('/admin/galeria/{slug}/activar', 'GalleryController@activate')->name('galerias.activate');
-	Route::put('/admin/galeria/{slug}/desactivar', 'GalleryController@deactivate')->name('galerias.deactivate');
 });
 
 Route::group(['middleware' => ['auth', 'superadmin']], function () {
-	// Banners
-	Route::get('/admin/banners', 'BannerController@index')->name('banners.index');
-	Route::get('/admin/banners/registrar', 'BannerController@create')->name('banners.create');
-	Route::post('/admin/banners', 'BannerController@store')->name('banners.store');
-	Route::get('/admin/banners/{slug}/editar', 'BannerController@edit')->name('banners.edit');
-	Route::put('/admin/banners/{slug}', 'BannerController@update')->name('banners.update');
-	Route::delete('/admin/banners/{slug}', 'BannerController@destroy')->name('banners.delete');
-	Route::put('/admin/banners/{slug}/activar', 'BannerController@activate')->name('banners.activate');
-	Route::put('/admin/banners/{slug}/desactivar', 'BannerController@deactivate')->name('banners.deactivate');
 
-	// Banners de Noticias
-	Route::get('/admin/banners/noticias', 'BannerNewController@index')->name('banners.noticias.index');
-	Route::get('/admin/banners/noticias/registrar', 'BannerNewController@create')->name('banners.noticias.create');
-	Route::post('/admin/banners/noticias', 'BannerNewController@store')->name('banners.noticias.store');
-	Route::get('/admin/banners/noticias/{slug}/editar', 'BannerNewController@edit')->name('banners.noticias.edit');
-	Route::put('/admin/banners/noticias/{slug}', 'BannerNewController@update')->name('banners.noticias.update');
-	Route::delete('/admin/banners/noticias/{slug}', 'BannerNewController@destroy')->name('banners.noticias.delete');
-	Route::put('/admin/banners/noticias/{slug}/activar', 'BannerNewController@activate')->name('banners.noticias.activate');
-	Route::put('/admin/banners/noticias/{slug}/desactivar', 'BannerNewController@deactivate')->name('banners.noticias.deactivate');
-
-	// Torneos
-	Route::get('/admin/ligas', 'TournamentController@index')->name('torneos.index');
-	Route::get('/admin/ligas/registrar', 'TournamentController@create')->name('torneos.create');
-	Route::post('/admin/ligas', 'TournamentController@store')->name('torneos.store');
-	Route::get('/admin/ligas/{slug}/editar', 'TournamentController@edit')->name('torneos.edit');
-	Route::put('/admin/ligas/{slug}', 'TournamentController@update')->name('torneos.update');
-	Route::delete('/admin/ligas/{slug}', 'TournamentController@destroy')->name('torneos.delete');
-	Route::put('/admin/ligas/{slug}/subir', 'TournamentController@up')->name('torneos.up');
-	Route::put('/admin/ligas/{slug}/bajar', 'TournamentController@down')->name('torneos.down');
-
-	// Equipos
-	Route::get('/admin/ligas/{tournament}/equipos', 'TeamController@index')->name('equipos.index');
-	Route::get('/admin/ligas/{tournament}/equipos/registrar', 'TeamController@create')->name('equipos.create');
-	Route::post('/admin/ligas/{tournament}/equipos', 'TeamController@store')->name('equipos.store');
-	Route::get('/admin/ligas/{tournament}/equipos/{slug}/editar', 'TeamController@edit')->name('equipos.edit');
-	Route::put('/admin/ligas/{tournament}/equipos/{slug}', 'TeamController@update')->name('equipos.update');
-	Route::delete('/admin/ligas/{tournament}/equipos/{slug}', 'TeamController@destroy')->name('equipos.delete');
-
-	// Jugadores
-	Route::get('/admin/ligas/{tournament}/equipos/{team}/jugadores', 'PlayerController@index')->name('jugadores.index');
-	Route::get('/admin/ligas/{tournament}/equipos/{team}/jugadores/registrar', 'PlayerController@create')->name('jugadores.create');
-	Route::post('/admin/ligas/{tournament}/equipos/{team}/jugadores', 'PlayerController@store')->name('jugadores.store');
-	Route::get('/admin/ligas/{tournament}/equipos/{team}/jugadores/{slug}/editar', 'PlayerController@edit')->name('jugadores.edit');
-	Route::put('/admin/ligas/{tournament}/equipos/{team}/jugadores/{slug}', 'PlayerController@update')->name('jugadores.update');
-	Route::delete('/admin/ligas/{tournament}/equipos/{team}/jugadores/{slug}', 'PlayerController@destroy')->name('jugadores.delete');
-
-	// Jornadas
-	Route::get('/admin/ligas/{tournament}/jornadas/registrar', 'DayController@index')->name('jornadas.index');
-
-	// Partidos
-	Route::post('/admin/partidos', 'MatchController@store')->name('partidos.store');
-	Route::post('/admin/partidos/estado', 'MatchController@matchState')->name('partidos.state');
-	Route::delete('/admin/partidos/{slug}', 'MatchController@destroy')->name('partidos.delete');
-
-	// Resultados
-	Route::get('/admin/ligas/{tournament}/resultados/registrar', 'MatchController@index')->name('resultados.index');
-	Route::post('/admin/resultados', 'MatchController@goals')->name('resultados.goals');
-	Route::post('/admin/resultados/estado', 'MatchController@state')->name('resultados.state');
-	Route::post('/admin/resultados/equipos', 'MatchController@teams')->name('resultados.teams');
-	Route::post('/admin/resultados/goleadores', 'MatchController@players')->name('resultados.players');
-	Route::get('/admin/ligas/{tournament}/resultados/clasificacion', 'MatchController@classification')->name('resultados.classification');
-
-	// Colores
-	Route::put('/admin/ligas/{tournament}/colores', 'MatchController@colors')->name('resultados.colors');
-	
-	// Estadios
-	Route::get('/admin/estadios', 'StadiumController@index')->name('estadios.index');
-	Route::get('/admin/estadios/registrar', 'StadiumController@create')->name('estadios.create');
-	Route::post('/admin/estadios', 'StadiumController@store')->name('estadios.store');
-	Route::get('/admin/estadios/{slug}/editar', 'StadiumController@edit')->name('estadios.edit');
-	Route::put('/admin/estadios/{slug}', 'StadiumController@update')->name('estadios.update');
-	Route::delete('/admin/estadios/{slug}', 'StadiumController@destroy')->name('estadios.delete');
-
-	// Ajustes
-	Route::get('/admin/resultados-en-directo', 'SettingController@results')->name('resultados.result');
-	Route::get('/admin/ajustes', 'SettingController@edit')->name('ajustes.edit');
-	Route::put('/admin/ajustes', 'SettingController@update')->name('ajustes.update');
 });

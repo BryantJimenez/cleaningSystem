@@ -10,15 +10,21 @@ function state($state) {
 	}
 }
 
-function stateNew($state) {
-	if ($state==1) {
-		return '<span class="badge badge-primary">Publicado</span>';
-	} elseif ($state==2) {
-		return '<span class="badge badge-info">Borrador</span>';
+function typeCompany($type) {
+	if ($type==1) {
+		return '<span class="badge badge-danger">Alarmas</span>';
+	} elseif ($type==2) {
+		return '<span class="badge badge-warning">Eléctrica</span>';
+	} elseif ($type==3) {
+		return '<span class="badge badge-primary">Agua</span>';
+	} elseif ($type==4) {
+		return '<span class="badge badge-success">Telefonía/Internet</span>';
 	} else {
 		return '<span class="badge badge-dark">Desconocido</span>';
 	}
 }
+
+
 
 function typeUser($type, $badge=1) {
 	if ($badge==1) {
@@ -44,25 +50,6 @@ function typeUser($type, $badge=1) {
 	}
 }
 
-function featuredBanner($featured) {
-	if ($featured==1) {
-		return '<span class="badge badge-primary">Principal Superior</span>';
-	} elseif ($featured==2) {
-		return '<span class="badge badge-primary">Principal Alargado</span>';
-	} elseif ($featured==3) {
-		return '<span class="badge badge-primary">Principal Medio</span>';
-	} elseif ($featured==4) {
-		return '<span class="badge badge-primary">Principal Inferior</span>';
-	} elseif ($featured==5) {
-		return '<span class="badge badge-primary">Noticia Superior</span>';
-	} elseif ($featured==6) {
-		return '<span class="badge badge-primary">Noticia Alargado</span>';
-	} elseif ($featured==7) {
-		return '<span class="badge badge-primary">Noticia Inferior</span>';
-	} else {
-		return '<span class="badge badge-dark">Desconocido</span>';
-	}
-}
 
 function active($path, $group=null) {
 	if (is_array($path)) {
@@ -174,14 +161,3 @@ function featured($featured) {
 	}
 }
 
-function youtubeUrl($url) {
-	$url_new=substr($url, 32);
-	if (is_numeric(strpos($url_new, '&'))) {
-		$end=strpos($url_new, '&');
-		$youtube=substr($url_new, 0, $end);
-	} else {
-		$youtube=substr($url, 32);
-	}
-
-	return "https://www.youtube.com/embed/".$youtube;
-}
