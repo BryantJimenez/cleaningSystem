@@ -77,6 +77,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/empresas/{slug}', 'BusinessController@update')->name('empresas.update');
 	Route::put('/admin/empresas/{slug}/activar', 'BusinessController@activate')->name('empresas.activate');
 	Route::put('/admin/empresas/{slug}/desactivar', 'BusinessController@deactivate')->name('empresas.deactivate');
+	Route::get('/admin/empresas/{slug}/empleados', 'BusinessController@employee')->name('empleados');
 
 	//Categorias
 	Route::get('/admin/categorias', 'CategoryController@index')->name('categorias.index');
@@ -108,7 +109,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/companias/{slug}/activar', 'CompanyController@activate')->name('companias.activate');
 	Route::put('/admin/companias/{slug}/desactivar', 'CompanyController@deactivate')->name('companias.deactivate');
 
-	//Contatos
+	//Contatos 
 
 	Route::get('/admin/contratos', 'ContractController@index')->name('contratos.index');
 	Route::get('/admin/contratos/registrar', 'ContractController@create')->name('contratos.create');
@@ -123,7 +124,6 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::get('/admin/empleados', 'EmployeeController@index')->name('empleados.index');
 	Route::get('/admin/empleados/registrar', 'EmployeeController@create')->name('empleados.create');
 	Route::post('/admin/empleados', 'EmployeeController@store')->name('empleados.store');
-	Route::get('/admin/empleados/{slug}', 'EmployeeController@show')->name('empleados.show');
 	Route::get('/admin/empleados/{slug}/editar', 'EmployeeController@edit')->name('empleados.edit');
 	Route::put('/admin/empleados/{slug}', 'EmployeeController@update')->name('empleados.update');
 	Route::put('/admin/empleados/{slug}/activar', 'EmployeeController@activate')->name('empleados.activate');
@@ -143,7 +143,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::get('/admin/opiniones', 'OpinionController@index')->name('opiniones.index');
 	Route::get('/admin/opiniones/registrar', 'OpinionController@create')->name('opiniones.create');
 	Route::post('/admin/opiniones', 'OpinionController@store')->name('opiniones.store');
-	Route::get('/admin/opiniones/{slug}', 'OpinionController@show')->name('opiniones.show');
+
 	Route::get('/admin/opiniones/{slug}/editar', 'OpinionController@edit')->name('opiniones.edit');
 	Route::put('/admin/opiniones/{slug}', 'OpinionController@update')->name('opiniones.update');
 	Route::put('/admin/opiniones/{slug}/activar', 'OpinionController@activate')->name('opiniones.activate');
@@ -181,13 +181,14 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 
 	//Secciones
 	Route::get('/admin/secciones', 'SectionController@index')->name('secciones.index');
-	Route::get('/admin/secciones/registrar', 'SectionController@create')->name('secciones.create');
 	Route::post('/admin/secciones', 'SectionController@store')->name('secciones.store');
-	Route::get('/admin/secciones/{slug}', 'SectionController@show')->name('secciones.show');
-	Route::get('/admin/secciones/{slug}/editar', 'SectionController@edit')->name('secciones.edit');
-	Route::put('/admin/secciones/{slug}', 'SectionController@update')->name('secciones.update');
-	Route::put('/admin/secciones/{slug}/activar', 'SectionController@activate')->name('secciones.activate');
-	Route::put('/admin/secciones/{slug}/desactivar', 'SectionController@deactivate')->name('secciones.deactivate');
+	Route::get('/admin/secciones/{id}/editar-primera-seccion', 'SectionController@editFirst')->name('secciones.edit.primera');
+	Route::get('/admin/secciones/{id}/editar-segunda-seccion', 'SectionController@editSecond')->name('secciones.edit.segunda');
+	Route::get('/admin/secciones/{id}/editar-tercera-seccion', 'SectionController@editThird')->name('secciones.edit.tercera');
+	Route::get('/admin/secciones/{id}/editar-cuarta-seccion', 'SectionController@editFourth')->name('secciones.edit.cuarta');
+	Route::get('/admin/secciones/{id}/editar-legal', 'SectionController@editLegal')->name('secciones.edit.legal');
+	Route::put('/admin/secciones/{id}', 'SectionController@update')->name('secciones.update');
+	
 
 	//Servicios
 	Route::get('/admin/servicios', 'ServiceController@index')->name('servicios.index');

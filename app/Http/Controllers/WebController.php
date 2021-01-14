@@ -7,6 +7,9 @@ use Illuminate\Support\Str;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Jenssegers\Agent\Agent;
+use App\Section;
+use App\Opinion;
+use App\Service;
 
 class WebController extends Controller
 {
@@ -16,47 +19,59 @@ class WebController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request) {
-        return view('web.home');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        $opinions = Opinion::all();
+        $services = Service::all();
+        return view('web.home', compact('section', 'opinions','services'));
     }
 
     public function create()
     {
-        return view('auth.register');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('auth.register', compact('section'));
     }
 
      public function households()
     {
-        return view('web.households');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.households', compact('section'));
     }
 
     public function services()
     {
-        return view('web.services');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        $services = Service::all();
+        return view('web.services', compact('section','services'));
     }
 
      public function legal()
     {
-        return view('web.legal');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.legal', compact('section'));
     }
 
     public function more()
     {
-        return view('web.more');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.more', compact('section'));
     }
 
     public function shoppingCart()
     {
-        return view('web.cart');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.cart', compact('section'));
     }
 
     public function purchase()
     {
-        return view('web.purchase');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.purchase', compact('section'));
     }
 
     public function rental()
     {
-        return view('web.rental');
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.rental', compact('section'));
     }
 
    

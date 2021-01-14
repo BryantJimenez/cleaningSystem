@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employee;
+use App\Business;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -59,8 +60,9 @@ class EmployeeController extends Controller
      */
     public function edit($slug)
     {
+        $business = Business::where('slug', $slug)->firstOrFail();
         $employee = Employee::where('slug', $slug)->firstOrFail();
-        return view('admin.employees.edit', compact("employee"));
+        return view('admin.employees.edit', compact("employee", "business"));
     }
     /**
      * Update the specified resource in storage.

@@ -38,10 +38,9 @@
 					<h2 class="ftco-heading-2">Contacto</h2>
 					<div class="block-23 mb-3">
 						<ul>
-							<li><span class="icon icon-map-marker"></span><span class="text">Avd, La Union, 66-68
-							30730 - San Javier (Murcia)</span></li>
-							<li><a href="#"><span class="icon icon-phone"></span><span class="text">info@cuidamostucasa.net</span></a></li>
-							<li><a href="#"><span class="icon icon-envelope"></span><span class="text">968192093</span></a></li>
+							<li><span class="icon icon-map-marker"></span><span class="text">{{$section->address}}</span></li>
+							<li><a href="#"><span class="icon icon-phone"></span><span class="text">{{$section->email}}</span></a></li>
+							<li><a href="#"><span class="icon icon-envelope"></span><span class="text">{{$section->phone_2}}</span></a></li>
 						</ul>
 					</div>
 				</div>

@@ -30,13 +30,14 @@
 						<p>Campos obligatorios (<b class="text-danger">*</b>)</p>
 						<form action="{{ route('categorias.update', ['slug' => $category->slug]) }}" method="POST" class="form" id="formcategoria" enctype="multipart/form-data">
 							@csrf
+							@method('PUT')
 							<div class="row">
 
 								<div class="form-group col-lg-12 col-md-12 col-12">
 									<div class="row">
-										<div class="form-group col-lg-12 col-md-12 col-12">
+										<div class="form-group col-lg-6 col-md-6 col-12">
 											<label class="col-form-label">Nombre<b class="text-danger">*</b></label>
-											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ old('name') }}">
+											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ $category->name }}">
 										</div>
 									</div> 
 								</div>

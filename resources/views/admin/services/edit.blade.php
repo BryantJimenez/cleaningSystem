@@ -30,29 +30,30 @@
 						<p>Campos obligatorios (<b class="text-danger">*</b>)</p>
 						<form action="{{ route('servicios.update', ['slug' => $service->slug]) }}" method="POST" class="form" id="formServicio" enctype="multipart/form-data">
 							@csrf
+							@method('PUT')
 							<div class="row">
 								<div class="form-group col-lg-6 col-md-6 col-12">
 									<label class="col-form-label">Foto<b class="text-danger">*</b></label>
-									<input type="file" name="photo" accept="image/*" id="input-file-now" class="dropify" data-height="125" data-max-file-size="20M" data-allowed-file-extensions="jpg png jpeg web3" required />
+									<input type="file" name="photo" accept="image/*" id="input-file-now" class="dropify" data-height="125" data-max-file-size="20M" data-allowed-file-extensions="jpg png jpeg web3" data-default-file="{{ '/admins/img/services/'.$service->photo }}"  />
 								</div>
 
 								<div class="form-group col-lg-6 col-md-6 col-12">
 									<div class="row">
 										<div class="form-group col-lg-12 col-md-12 col-12">
 											<label class="col-form-label">Nombre<b class="text-danger">*</b></label>
-											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ old('name') }}">
+											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre"  value="{{ $service->name }}">
 										</div>
 
 										<div class="form-group col-lg-12 col-md-12 col-12">
 											<label class="col-form-label">Precio por Metro Cuadrado <b class="text-danger">*</b></label>
-											<input class="form-control" type="text" name="square_meter" required placeholder="Introduzca un un precio" value="{{ old('square_meter') }}">
+											<input class="form-control" type="text" name="square_meter" required placeholder="Introduzca un un precio" value="{{ $service->square_meter }}">
 										</div>
 									</div> 
 								</div>
 
 								<div class="form-group col-lg-12 col-md-12 col-12">
 									<label class="col-form-label">Descripción<b class="text-danger">*</b></label>
-									<input class="form-control" type="email" name="description" required placeholder="Introduzca una descripción" value="{{ old('dscription') }}">
+									<input class="form-control" type="text" name="description" required placeholder="Introduzca una descripción" value="{{ $service->description }}">
 								</div>
 
 								

@@ -12,7 +12,7 @@ class Section extends Model
 		'about',
 		'services',
 		'households',
-		'opinion',
+		'contact',
 		'legal',
 		'email',
 		'address',

@@ -10,6 +10,7 @@ class Opinion extends Model
 		'photo', 
 		'opinion',
 		'name',
-		'position'
+		'position',
+		'slug'
 	]; 
 }

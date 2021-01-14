@@ -49,8 +49,8 @@
 
 
  								<div class="form-group col-lg-6 col-md-6 col-12">
- 									<label class="col-form-label">Descripción<b class="text-danger">*</b></label>
- 									<input class="form-control" type="email" name="description" required placeholder="Introduzca una descripción" value="{{ old('dscription') }}">
+ 									<label class="col-form-label">Direccion<b class="text-danger">*</b></label>
+ 									<input class="form-control" type="text" name="address" required placeholder="Introduzca una Direccion" value="{{ old('address') }}">
  								</div>
 
 

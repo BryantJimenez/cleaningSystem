@@ -28,29 +28,29 @@
 						@include('admin.partials.errors')
 
 						<p>Campos obligatorios (<b class="text-danger">*</b>)</p>
-						<form action="{{ route('empresas.update', ['slug' => $business->slug]) }}" method="POST" class="form" id="formempresa" enctype="multipart/form-data">
+						<form action="{{ route('empresas.update', ['slug' => $business->slug]) }}" method="POST" class="form" id="formEmpresa" enctype="multipart/form-data">
 							@csrf
+							@method('PUT')
 							<div class="row">
-
 								<div class="form-group col-lg-6 col-md-6 col-12">
 									<label class="col-form-label">Nombre<b class="text-danger">*</b></label>
-									<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ old('name') }}">
+									<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ $business->name }}">
 								</div>
 
 								<div class="form-group col-lg-6 col-md-6 col-12">
 									<label class="col-form-label">Teléfono <b class="text-danger">*</b></label>
-									<input class="form-control" type="text" name="phone" required placeholder="Introduzca un teléfono" value="{{ old('phone') }}">
+									<input class="form-control" type="text" name="phone" required placeholder="Introduzca un teléfono" value="{{ $business->phone }}">
 								</div>
 
 								<div class="form-group col-lg-6 col-md-6 col-12">
 									<label class="col-form-label">Cargo <b class="text-danger">*</b></label>
-									<input class="form-control" type="text" name="specialty" required placeholder="Introduzca un cargo" value="{{ old('specialty') }}">
+									<input class="form-control" type="text" name="specialty" required placeholder="Introduzca un cargo" value="{{ $business->specialty }}">
 								</div>
 
 
 								<div class="form-group col-lg-6 col-md-6 col-12">
-									<label class="col-form-label">Descripción<b class="text-danger">*</b></label>
-									<input class="form-control" type="email" name="description" required placeholder="Introduzca una descripción" value="{{ old('dscription') }}">
+									<label class="col-form-label">Direccion<b class="text-danger">*</b></label>
+									<input class="form-control" type="text" name="address" required placeholder="Introduzca una direccion" value="{{ $business->address }}">
 								</div>
 
 								

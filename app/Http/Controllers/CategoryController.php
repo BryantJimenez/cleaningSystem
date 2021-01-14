@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -37,7 +38,32 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $count = Category::where('name', request('name'))->where('name', request('name'))->count();
+        $slug = Str::slug(request('name'), '-');
+        if ($count>0) {
+            $slug=$slug."-".$count;
+        }
+
+        // Validación para que no se repita el slug
+        $num = 0;
+        while (true) {
+            $count2 = Category::where('slug', $slug)->count();
+            if ($count2>0) {
+                $slug = $slug."-".$num;
+                $num++;
+            } else {
+                $data = array('name' => request('name'), 'slug' => $slug);
+                break;
+            }
+        }
+
+        $category = Category::create($data);
+
+        if ($category) {
+            return redirect()->route('categorias.index')->with(['type' => 'success', 'title' => 'Registro exitoso', 'msg' => 'La Categoría ha sido registrada exitosamente.']);
+        } else {
+            return redirect()->route('categorias.index')->with(['type' => 'error', 'title' => 'Registro fallido', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
+        }
     }
 
     /**
@@ -70,9 +96,18 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    
+    public function update(Request $request, $slug)
     {
-        //
+        $category = Category::where('slug', $slug)->firstOrFail();
+
+        $category->fill($request->all())->save();
+
+        if ($category) {
+            return redirect()->route('categorias.edit', ['slug' => $slug])->with(['type' => 'success', 'title' => 'Edición exitosa', 'msg' => 'La Categoría ha sido editada exitosamente.']);
+        } else {
+            return redirect()->route('categorias.edit', ['slug' => $slug])->with(['type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
+        }
     }
 
     /**
@@ -81,8 +116,39 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+   public function destroy($slug)
     {
-        //
+        $category=Category::where('slug', $slug)->firstOrFail();
+        $category->delete();
+
+        if ($category) {
+            return redirect()->route('categorias.index')->with(['alert' => 'sweet', 'type' => 'success', 'title' => 'Eliminación exitosa', 'msg' => 'La Categoría ha sido eliminada exitosamente.']);
+        } else {
+            return redirect()->route('categorias.index')->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Eliminación fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
+        }
+    }
+
+    public function deactivate(Request $request, $slug) {
+
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $category->fill(['state' => "0"])->save();
+
+        if ($category) {
+            return redirect()->route('categorias.index')->with(['alert' => 'sweet', 'type' => 'success', 'title' => 'Edición exitosa', 'msg' => 'La Categoría ha sido desactivada exitosamente.']);
+        } else {
+            return redirect()->route('categorias.index')->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
+        }
+    }
+
+    public function activate(Request $request, $slug) {
+
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $category->fill(['state' => "1"])->save();
+
+        if ($category) {
+            return redirect()->route('categorias.index')->with(['alert' => 'sweet', 'type' => 'success', 'title' => 'Edición exitosa', 'msg' => 'La Categoría ha sido activada exitosamente.']);
+        } else {
+            return redirect()->route('categorias.index')->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bank;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BanksController extends Controller
 {

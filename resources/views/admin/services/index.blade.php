@@ -49,9 +49,9 @@
 									<tr>
 										<td>{{ $num++ }}</td>
 										<td class="d-flex">
-											<img src="{{ asset('/web/images/'.$service->photo) }}" class="rounded-circle mr-2" width="45" height="45" alt="{{ $service->name }}"> {{ $service->name }}
+											<img src="{{ asset('/admins/img/services/'.$service->photo) }}" class="rounded-circle mr-2" width="45" height="45" alt="{{ $service->name }}"> {{ $service->name }}
 										</td>
-										<td>{{ $service->square_meter }}</td>
+										<td>{{ $service->square_meter }} €</td>
 										<td>{{ $service->description }}</td>
 										<td>{!! state($service->state) !!}</td>
 										<td>

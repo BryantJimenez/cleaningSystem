@@ -9,8 +9,8 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-            <div class="col-md-8 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }"> <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Cuidamos de tu casa, mientras no estás</h1>
-                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Disfruta de la tranquilidad de que alguien cuide de tu casa mientras no estás</p>
+            <div class="col-md-8 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }"> <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{ $section->title }}</h1>
+                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{ $section->subtitle }}</p>
                 <div><a href="{{ route('register') }}"><button class="text-center btn btn-primary py-3 px-5 mr-5">Registrarse</button></a> <a href="{{ route('login') }}"><button class="text-center btn btn-primary py-3 px-5">Iniciar Sesión</button></a></div>
             </div>
             
@@ -29,8 +29,7 @@
                   <div class="col-md-12 heading-section ftco-animate">
                     <span class="subheading">Nosotros</span>
                     <h2 class="mb-4">Sobre Nosotros</h2>
-                    <p>Cuidamos tu Casa es una empresa dedicada a cuidar tu casa mientras tú no estás, para que puedas tener la tranquilidad de saber que tu hogar está en las mejores manos.</p>
-                    <p>Te avisamos de cualquier desperfecto. Años de experiencia en el sector inmobiliario nos avalan.</p>
+                    {!! $section->about !!}
                 </div>
             </div>
             <div class="row">
@@ -72,104 +71,37 @@
           <div class="col-md-12 heading-section text-center ftco-animate">
             <span class="subheading">Servicios</span>
             <h2 class="mb-4">Nuestros Servicios</h2>
-            <p>Nos dedicamos a cuidar tu casa mientras tú no estás a través de los siguientes servicios</p>
+            <p>{{$section->services}}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 testimonial">
             <div class="carousel-project owl-carousel">
+                @foreach($services as $service)
                 <div class="item">
                     <div class="project">
                         <div class="img">
-                            <img src="/web/images/supervision.jpg" class="img-fluid" alt="Colorlib Template">
-                            <a href="/web/images/supervision.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('/admins/img/services/'.$service->photo) }}" class="img-fluid" alt="Colorlib Template">
+                            <a href="{{ asset('/admins/img/services/'.$service->photo) }}" class="icon image-popup d-flex justify-content-center align-items-center">
                                 <span class="icon-expand"></span>
                             </a>
                         </div>
                         <div class="text px-4">
-                            <h3><a href="#">Supervisión</a></h3>
-                            <span>Hacemos una visita periódica para supervisar cualquier eventualidad</span>
+                            <h3><a href="#">{{$service->name}}</a></h3>
+                            <span>{{$service->description}}</span>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="project">
-                        <div class="img">
-                            <img src="/web/images/cuidado.jpg" class="img-fluid" alt="Colorlib Template">
-                            <a href="/web/images/cuidado.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-                                <span class="icon-expand"></span>
-                            </a>
-                        </div>
-                        <div class="text px-4">
-                            <h3><a href="#">Cuidamos de tu Casa</a></h3>
-                            <span>Gestión y Tramitación de averías, puertas de acceso, vallado, terrazas, toldos, retiradas de escombros, etc.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="project">
-                        <div class="img">
-                            <img src="/web/images/limpieza.jpg" class="img-fluid" alt="Colorlib Template">
-                            <a href="/web/images/limpieza.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-                                <span class="icon-expand"></span>
-                            </a>
-                        </div>
-                        <div class="text px-4">
-                            <h3><a href="#">Limpieza</a></h3>
-                            <span>Servicio de Lavandería y Limpieza. Nuestro equipo especializado se encargará de cubrir con la máxima calidad todas tus necesidades</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="project">
-                        <div class="img">
-                            <img src="/web/images/key.jpg" class="img-fluid" alt="Colorlib Template">
-                            <a href="/web/images/key.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-                                <span class="icon-expand"></span>
-                            </a>
-                        </div>
-                        <div class="text px-4">
-                            <h3><a href="#">Key keepers</a></h3>
-                            <span>Tenemos unas llaves de tu casa por todos esos imprevistos que puedan suceder cuando no estas o quizás  se te hayan olvidado</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="project">
-                        <div class="img">
-                            <img src="/web/images/mantenimiento.jpg" class="img-fluid" alt="Colorlib Template">
-                            <a href="/web/images/mantenimiento.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-                                <span class="icon-expand"></span>
-                            </a>
-                        </div>
-                        <div class="text px-4">
-                            <h3><a href="#">Mantenimiento</a></h3>
-                            <span>Mantenimiento de jardín y piscina</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="project">
-                        <div class="img">
-                            <img src="/web/images/lluvia.jpg" class="img-fluid" alt="Colorlib Template">
-                            <a href="/web/images/lluvia.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-                                <span class="icon-expand"></span>
-                            </a>
-                        </div>
-                        <div class="text px-4">
-                            <h3><a href="#">Temporadas de lluvias</a></h3>
-                            <span>Limpieza y revisión de desagües. Mantenimiento y desatasco de imbornales.</span>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </div>
     <div class="row justify-content-center pb-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <a href="{{ route('services') }}"><button class="text-center btn btn-primary py-3 px-5"> Ver Más</button></a>
-        </div>
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <a href="{{ route('services') }}"><button class="text-center btn btn-primary py-3 px-5"> Ver Más</button></a>
     </div>
+</div>
 </div>
 </section>
 
@@ -180,45 +112,33 @@
       <div class="col-md-7 heading-section text-center ftco-animate">
         <span class="subheading">Opiniones</span>
         <h2 class="mb-4">Nuestros Clientes Opinan</h2>
-        <p>Cada cliente es un mundo, por lo tanto, estan en todo su derecho de opinar segun la calidad de nuestros servicios</p>
+        <p>{{$service->opinion}}</p>
     </div>
 </div>
 <div class="row ftco-animate justify-content-center">
     <div class="col-md-12 d-flex align-items-center">
         <div class="carousel-testimony owl-carousel">
+            @foreach($opinions as $opinion)
             <div class="item">
                 <div class="testimony-wrap d-flex align-items-stretch">
-                  <div class="user-img d-flex align-self-stretch" style="background-image: url(/web/images/testimony-1.jpg)">
+                  <div class="user-img d-flex align-self-stretch" style="background-image: url({{ asset('/admins/img/opinions/'.$opinion->photo) }})">
                   </div>
                   <div class="text d-flex align-items-center">
                     <div>
                         <div class="icon-quote">
                             <span class="icon-quote-left"></span>
                         </div>
-                        <p class="mb-4">"Tenemos un pequeño chalet que heredamos de mis suegros. Mi mujer le tiene especial aprecio. Sin embargo, en muchas ocasiones, me es imposible ir a pasar una temporadas y saber si estan en las mejores condiciones. Mi mujer siempre estaba preocupada por si algo de la casa fallaba. Desde que contratamos los servicios de <strong>Cuidamos tu casa</strong> mi mujer está mas tranquila"</p>
-                        <p class="name">José Antonio Martín</p>
-                        <span class="position">Cliente Satisfecho</span>
+                        <p class="mb-4">{!!$opinion->opinion!!}</p>
+                        <p class="name">{{$opinion->name}}</p>
+                        <span class="position">{{$opinion->position}}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="item">
-            <div class="testimony-wrap d-flex align-items-stretch">
-              <div class="user-img d-flex align-self-stretch" style="background-image: url(/web/images/about-1.jpg)">
-              </div>
-              <div class="text d-flex align-items-center">
-                <div>
-                    <div class="icon-quote">
-                        <span class="icon-quote-left"></span>
-                    </div>
-                    <p class="mb-4">Gracias al esfuerzo de la familia hemos podido hacernos de otra casa en la playa, asi que vamos a pasar casi todo el verano con los niños, sin embargo en invierno simepre estoy preocupada si por si algo le falla a la casa como el aire acondicionado o las calderas, una amiga me recomendo los servicios de <strong>Cuidamos tu casa</strong> y sinceramente en el invierno estamos mas tarnquilos de nuestra casa de la playa.</p>
-                    <p class="name">Carmen Núñez</p>
-                    <span class="position">Cliente Satisfecho</span>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
+
     </div>
-</div>
 </div>
 </div>
 </div>
@@ -230,7 +150,7 @@
       <div class="col-md-7 heading-section text-center ftco-animate">
         <span class="subheading">Viviendas</span>
         <h2 class="mb-4">Todas nuestras Viviendas disponibles</h2>
-        <p>Si te interesa comprar, vender o alquilar alguna vivienda, estas en la sección correcta.</p>
+        <p>{{$section->households}}</p>
     </div>
 </div>
 <div class="row d-flex">
@@ -338,11 +258,11 @@
 </div>
 </div>
 </div>
- <div class="row justify-content-center pb-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <a href="{{ route('households') }}"><button class="text-center btn btn-primary py-3 px-5"> Ver Más</button></a>
-        </div>
-    </div>
+<div class="row justify-content-center pb-5 mt-5">
+  <div class="col-md-12 heading-section text-center ftco-animate">
+    <a href="{{ route('households') }}"><button class="text-center btn btn-primary py-3 px-5"> Ver Más</button></a>
+</div>
+</div>
 </div>
 </section>
 
@@ -352,7 +272,7 @@
       <div class="col-md-7 heading-section text-center ftco-animate">
         <span class="subheading">Contacto</span>
         <h2 class="mb-4">Contactáctanos</h2>
-        <p>Cuenta con nuestro equipo para Cuidar de Tu Casa mientras no estas. Déjanos tus datos y lo más pronto posible nos comunicaremos contigo.</p>
+        <p>{{$service->contact}}</p>
     </div>
 </div>
 <div class="row no-gutters block-9">
@@ -393,7 +313,7 @@
                 <span class="icon-map-signs"></span>
             </div>
             <h3 class="mb-4">Dirección</h3>
-            <p>Avda Santander, 23 Bajo Noja (Cantabria)</p>
+            <p>{{$section->address}}</p>
         </div>
     </div>
     <div class="col-md-6 col-lg-4 d-flex">
@@ -402,7 +322,7 @@
                 <span class="icon-phone2"></span>
             </div>
             <h3 class="mb-4">Número de Contacto</h3>
-            <p><a href="tel://942631584">968 192 093</a></p>
+            <p><a href="tel://942631584">{{$section->phone_1}}</a></p>
         </div>
     </div>
     <div class="col-md-6 col-lg-4 d-flex">
@@ -411,7 +331,7 @@
                 <span class="icon-paper-plane"></span>
             </div>
             <h3 class="mb-4">Correo Electrónico</h3>
-            <p><a href="mailto:info@cuidamostucasa.net">info@cuidamostucasa.net</a></p>
+            <p><a href="mailto:info@cuidamostucasa.net">{{$section->email}}</a></p>
         </div>
     </div>
 </div>

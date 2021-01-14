@@ -11,7 +11,6 @@ class Service extends Model
 		'slug',
 		'photo',
 		'description',
-		'sale',
 		'square_meter'
 	];  
  

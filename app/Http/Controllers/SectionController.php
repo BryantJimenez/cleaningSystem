@@ -15,7 +15,7 @@ class SectionController extends Controller
     public function index()
     {
         $num=1;
-        $sections = Section::all();
+        $sections = Section::where('id', '=', '1')->firstOrFail();
         return view('admin.sections.index', compact( 'sections', 'num'));
     }
 
@@ -24,42 +24,29 @@ class SectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Section  $section
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Section $section)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Section  $section
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
+    public function editFirst($id) {
         $section = Section::where('id', $id)->firstOrFail();
-        return view('admin.sections.show', compact('section'));
+        return view('admin.sections.first', compact('section'));
+    }
+
+    public function editSecond($id) {
+        $section = Section::where('id', $id)->firstOrFail();
+        return view('admin.sections.second', compact('section'));
+    }
+
+    public function editThird($id) {
+        $section = Section::where('id', $id)->firstOrFail();
+        return view('admin.sections.third', compact('section'));
+    }
+
+    public function editFourth($id) {
+        $section = Section::where('id', $id)->firstOrFail();
+        return view('admin.sections.fourth', compact('section'));
+    }
+
+    public function editLegal($id) {
+        $section = Section::where('id', $id)->firstOrFail();
+        return view('admin.sections.legal', compact('section'));
     }
 
     /**
@@ -69,19 +56,17 @@ class SectionController extends Controller
      * @param  \App\Section  $section
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Section $section)
+    public function update(Request $request, $id)
     {
-        //
+         $section = Section::where('id', $id)->firstOrFail();
+
+        $section->fill($request->all())->save();
+
+        if ($section) {
+            return redirect()->route('secciones.index', ['id' => $id])->with(['type' => 'success', 'title' => 'Edición exitosa', 'msg' => 'La Sección ha sido editada exitosamente.']);
+        } else {
+            return redirect()->route('secciones.edit', ['id' => $id])->with(['type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Section  $section
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Section $section)
-    {
-        //
-    }
 }

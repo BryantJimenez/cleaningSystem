@@ -30,17 +30,18 @@
 						<p>Campos obligatorios (<b class="text-danger">*</b>)</p>
 						<form action="{{ route('contratos.update', ['slug' => $contract->slug]) }}" method="POST" class="form" id="formcontrato" enctype="multipart/form-data">
 							@csrf
+							@method('PUT')
 							<div class="row">
 
 								<div class="form-group col-lg-12 col-md-12 col-12">
 									<div class="row">
 										<div class="form-group col-lg-6 col-md-6 col-12">
 											<label class="col-form-label">Nombre<b class="text-danger">*</b></label>
-											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ old('name') }}">
+											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ $contract->name }}">
 										</div>
 										<div class="form-group col-lg-6 col-md-6 col-12">
 											<label class="col-form-label">Precio<b class="text-danger">*</b></label>
-											<input class="form-control" type="text" name="price" required placeholder="Introduzca un precio" value="{{ old('price') }}">
+											<input class="form-control" type="text" name="price" required placeholder="Introduzca un precio" value="{{ $contract->price }}">
 										</div>
 									</div> 
 								</div>

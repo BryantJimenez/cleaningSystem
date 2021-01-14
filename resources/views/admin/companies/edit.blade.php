@@ -29,22 +29,23 @@
 						<p>Campos obligatorios (<b class="text-danger">*</b>)</p>
 						<form action="{{ route('companias.update', ['slug' => $company->slug]) }}" method="POST" class="form" id="formCompania" enctype="multipart/form-data">
 							@csrf
+							@method('PUT')
 							<div class="row">
 
 								<div class="form-group col-lg-12 col-md-12 col-12">
 									<div class="row">
 										<div class="form-group col-lg-6 col-md-6 col-12">
 											<label class="col-form-label">Nombre<b class="text-danger">*</b></label>
-											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ old('name') }}">
+											<input class="form-control" type="text" name="name" required placeholder="Introduzca un nombre" value="{{ $company->name }}">
 										</div>
 										<div class="form-group col-lg-6 col-md-6 col-12">
 											<label class="col-form-label">Tipo<b class="text-danger">*</b></label>
 											<select class="form-control" name="type">
 												<option value="">Seleccione un Tipo</option>
-												<option value="1">Compañía de Alarmas</option>
-												<option value="2">Compañía de Eléctrica</option>
-												<option value="3">Compañía de Agua</option>
-												<option value="4"> Compañía de Telefonía/Internet</option>
+												<option @if($company->type==1) selected @endif value="1">Compañía de Alarmas</option>
+												< @if($company->type==2) selected @endif value="2">Compañía de Eléctrica</option>
+												<option @if($company->type==3) selected @endif value="3">Compañía de Agua</option>
+												<option @if($company->type==4) selected @endif value="4"> Compañía de Telefonía/Internet</option>
 											</select>
 										</div>
 									</div> 

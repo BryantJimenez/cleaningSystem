@@ -33,7 +33,7 @@
 							<div class="row">
 								
 
-								<div class="form-group col-lg-12 col-md-12 col-12">
+								<div class="form-group col-lg-6 col-md-6 col-12">
 									<div class="row">
 										<div class="form-group col-lg-12 col-md-12 col-12">
 											<label class="col-form-label">Nombre<b class="text-danger">*</b></label>

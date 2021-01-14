@@ -267,10 +267,22 @@ $(document).ready(function() {
   }
 
   //CKeditor plugin
-  if ($('#content-news').length) {
+  if ($('#content-about').length) {
     CKEDITOR.config.height=400;
     CKEDITOR.config.width='auto';
-    CKEDITOR.replace('content-news');
+    CKEDITOR.replace('content-about');
+  }
+
+  if ($('#content-legal').length) {
+    CKEDITOR.config.height=400;
+    CKEDITOR.config.width='auto';
+    CKEDITOR.replace('content-legal');
+  }
+
+  if ($('#content-opinion').length) {
+    CKEDITOR.config.height=400;
+    CKEDITOR.config.width='auto';
+    CKEDITOR.replace('content-opinion');
   }
 
   //tags inputs plugin

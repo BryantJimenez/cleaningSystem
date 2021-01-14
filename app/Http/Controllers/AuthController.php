@@ -16,7 +16,7 @@ class AuthController extends Controller
 		$user=User::where('email', request('email'))->first();
 		if (!is_null($user)) {
 			if($user->type==1 || $user->type==2 || $user->state==0) {
-			 	return redirect()->back()->with(['error.login' => 'Este usuario no tiene permitido ingresar.'])->withInput();
+				return redirect()->back()->with(['error.login' => 'Este usuario no tiene permitido ingresar.'])->withInput();
 			} elseif(Hash::check(request('password'), $user->password)) {
 				$request->session()->push('user', $user);
 				return redirect()->back();

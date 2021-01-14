@@ -30,7 +30,6 @@
 					<div class="col-12">
 						<div class="text-right">
 							<a href="{{ route('empresas.create') }}" class="btn btn-primary">Agregar Empresas</a>
-							<a href="{{ route('empleados.index') }}" class="btn btn-success">Lista de Empleados Empleados</a>
 						</div>
 
 						<div class="table-responsive mb-4 mt-4">
@@ -57,7 +56,7 @@
 										<td>{!! state($business->state) !!}</td>
 										<td>
 											<div class="btn-group" role="group">
-												
+												<a href="{{ route('empleados', ['slug' => $business->slug]) }}" class="btn btn-primary btn-sm bs-tooltip" title="Perfil"><i class="fa fa-users"></i></a>
 												<a href="{{ route('empresas.edit', ['slug' => $business->slug]) }}" class="btn btn-info btn-sm bs-tooltip" title="Editar"><i class="fa fa-edit"></i></a>
 												@if($business->state==1)
 												<button type="button" class="btn btn-danger btn-sm bs-tooltip" title="Desactivar" onclick="deactiveBusiness('{{ $business->slug }}')"><i class="fa fa-power-off"></i></button>

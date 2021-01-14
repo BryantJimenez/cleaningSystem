@@ -55,11 +55,11 @@ function active($path, $group=null) {
 	if (is_array($path)) {
 		foreach ($path as $url) {
 			if (is_null($group)) {
-				if (request()->is($path)) {
+				if (request()->is($url)) {
 					return 'active';
 				}
 			} else {
-				if (is_int(strpos(request()->path(), $path))) {
+				if (is_int(strpos(request()->path(), $url))) {
 					return 'active';
 				}
 			}
@@ -78,11 +78,11 @@ function menu_expanded($path, $group=null) {
 	if (is_array($path)) {
 		foreach ($path as $url) {
 			if (is_null($group)) {
-				if (request()->is($path)) {
+				if (request()->is($url)) {
 					return 'true';
 				}
 			} else {
-				if (is_int(strpos(request()->path(), $path))) {
+				if (is_int(strpos(request()->path(), $url))) {
 					return 'true';
 				}
 			}
@@ -101,11 +101,11 @@ function submenu($path, $action=null) {
 	if (is_array($path)) {
 		foreach ($path as $url) {
 			if (is_null($action)) {
-				if (request()->is($path)) {
+				if (request()->is($url)) {
 					return 'class=active';
 				}
 			} else {
-				if (is_int(strpos(request()->path(), $path))) {
+				if (is_int(strpos(request()->path(), $url))) {
 					return 'show';
 				}
 			}

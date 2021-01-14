@@ -15,6 +15,7 @@ class CreateOpinionsTable extends Migration
     {
         Schema::create('opinions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('slug')->unique();
             $table->string('photo');
             $table->text('opinion');
             $table->string('name');
