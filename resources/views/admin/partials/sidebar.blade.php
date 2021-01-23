@@ -73,8 +73,8 @@
                 </a>
             </li>
 
-             <li class="menu {{ active(['admin/categorias', 'admin/provincias', 'admin/ciudades', 'admin/contratos', 'admin/piscinas', 'admin/companias', 'admin/empresas', 'admin/web'], 0) }}">
-                <a href="#setting" data-toggle="collapse" aria-expanded="{{ menu_expanded(['admin/categorias', 'admin/provincias', 'admin/ciudads', 'admin/contratos', 'admin/piscinas', 'admin/companias', 'admin/empresas', 'admin/web'], 0) }}" class="dropdown-toggle">
+             <li class="menu {{ active(['admin/categorias', 'admin/provincias', 'admin/ciudades', 'admin/contratos', 'admin/bancos', 'admin/piscinas', 'admin/companias', 'admin/empresas', 'admin/secciones', 'admin/empleados'], 0) }}">
+                <a href="#setting" data-toggle="collapse" aria-expanded="{{ menu_expanded(['admin/categorias', 'admin/provincias', 'admin/ciudads', 'admin/contratos', 'admin/bancos', 'admin/piscinas', 'admin/companias', 'admin/empresas', 'admin/secciones', 'admin/empleados'], 0) }}" class="dropdown-toggle">
                     <div class="">
                         <span><i class="fa fa-cogs"></i> Ajustes</span>
                     </div>
@@ -82,7 +82,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 </a>
-                <ul class="collapse submenu list-unstyled {{ submenu(['admin/categorias', 'admin/provincias', 'admin/ciudades', 'admin/contratos', 'admin/piscinas', 'admin/companias', 'admin/empresas', 'admin/secciones'], 0) }}" id="setting" data-parent="#accordionExample">
+                <ul class="collapse submenu list-unstyled {{ submenu(['admin/categorias', 'admin/provincias', 'admin/ciudades', 'admin/contratos', 'admin/bancos', 'admin/piscinas', 'admin/companias', 'admin/empresas', 'admin/secciones', 'admin/empleados'], 0) }}" id="setting" data-parent="#accordionExample">
                     <li {{ submenu('admin/categorias') }}>
                         <a href="{{ route('categorias.index') }}"> Categorías</a>
                     </li>
@@ -94,6 +94,9 @@
                     </li>
                     <li {{ submenu('admin/contratos') }}>
                         <a href="{{ route('contratos.index') }}"> Contratos</a>
+                    </li>
+                    <li {{ submenu('admin/bancos') }}>
+                        <a href="{{ route('bancos.index') }}"> Bancos</a>
                     </li>   
                     <li {{ submenu('admin/piscinas') }}>
                         <a href="{{ route('piscinas.index') }}"> Piscinas</a>

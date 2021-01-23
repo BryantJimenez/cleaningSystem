@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="text-right">
-							<a href="{{ route('companias.create') }}" class="btn btn-primary">Agregar</a>
+							<a href="{{ route('companias.create') }}" class="btn btn-primary">Agregar Empresas</a>
 						</div>
 
 						<div class="table-responsive mb-4 mt-4">

@@ -1,3 +1,28 @@
+$(document).ready(function() {
+
+    //dropify para input file más personalizado
+  if ($('.dropify').length) {
+    $('.dropify').dropify({
+      messages: {
+        default: 'Arrastre y suelte una imagen o da click para seleccionarla',
+        replace: 'Arrastre y suelte una imagen o haga click para reemplazar',
+        remove: 'Remover',
+        error: 'Lo sentimos, el archivo es demasiado grande'
+      },
+      error: {
+        'fileSize': 'El tamaño del archivo es demasiado grande ({{ value }} máximo).',
+        'minWidth': 'El ancho de la imagen es demasiado pequeño ({{ value }}}px mínimo).',
+        'maxWidth': 'El ancho de la imagen es demasiado grande ({{ value }}}px máximo).',
+        'minHeight': 'La altura de la imagen es demasiado pequeña ({{ value }}}px mínimo).',
+        'maxHeight': 'La altura de la imagen es demasiado grande ({{ value }}px máximo).',
+        'imageFormat': 'El formato de imagen no está permitido (Debe ser {{ value }}).'
+      }
+    });
+  }
+
+});
+
+
  AOS.init({
  	duration: 800,
  	easing: 'slide'
@@ -61,8 +86,6 @@
 
 	// Scrollax
    $.Scrollax();
-
-
 
    // Burger Menu
 	var burgerMenu = function() {

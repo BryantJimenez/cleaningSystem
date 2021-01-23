@@ -61,10 +61,6 @@
 	<script src="{{ asset('/web/js/scrollax.min.js') }}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="{{ asset('/web/js/google-map.js') }}"></script>
-	<script src="{{ asset('/admins/vendor/validate/jquery.validate.js') }}"></script>
-	<script src="{{ asset('/admins/vendor/validate/additional-methods.js') }}"></script>
-	<script src="{{ asset('/admins/vendor/validate/messages_es.js') }}"></script>
-	<script src="{{ asset('/admins/js/validate.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/web/js/main.js') }}"></script>
 
 	@include('admin.partials.notifications')

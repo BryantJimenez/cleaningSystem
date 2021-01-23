@@ -41,7 +41,7 @@
         <div class="row no-gutters block-9">
           <div class="col-md-12 order-md-last d-flex">
 
-            <form action="#" class="bg-light p-5 contact-form">
+            <form class="bg-light p-5 contact-form" action="#" method="POST" id="formCustomer" enctype="multipart/form-data">
                 <p>Campos obligatorios (<b class="text-danger">*</b>)</p>
                 <div class="row">
                     <div class="form-group col-md-6">
@@ -110,8 +110,6 @@
 </section>
 
 </section> <!-- .section -->
-
-
 @endsection
 
 @section('scripts')

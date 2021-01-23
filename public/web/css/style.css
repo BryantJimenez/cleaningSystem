@@ -3379,7 +3379,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
     text-decoration: none; }
-  .nav-link.disabled {
+  .nav-link {
     color: #6c757d;
     pointer-events: none;
     cursor: default; }
@@ -8021,7 +8021,7 @@ h1, h2, h3, h4, h5,
   padding-top: 30px; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
-      background: #000000 !important;
+      background: white !important;
       position: relative;
       top: 0;
       padding-top: 0;
@@ -8037,7 +8037,7 @@ h1, h2, h3, h4, h5,
     padding-top: .7rem;
     padding-bottom: .7rem; }
     .ftco-navbar-light .navbar-brand span {
-      color: #fff; }
+      color: #000000; }
     @media (max-width: 991.98px) {
       .ftco-navbar-light .navbar-brand {
         color: #fff; } }

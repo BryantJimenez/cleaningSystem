@@ -50,17 +50,25 @@
 
  								<div class="form-group col-lg-6 col-md-6 col-12">
  									<label class="col-form-label">Correo <b class="text-danger">*</b></label>
- 									<input class="form-control" type="text" name="specialty" required placeholder="Introduzca un correo" value="{{ old('specialty') }}">
+ 									<input class="form-control" type="email" name="email" required placeholder="Introduzca un correo" value="{{ old('email') }}">
+ 								</div>
+
+ 								<div class="form-group col-lg-6 col-md-6 col-12">
+ 									<label class="col-form-label">DNI <b class="text-danger">*</b></label>
+ 									<input class="form-control" type="text" name="dni" required placeholder="Introduzca un dni" value="{{ old('dni') }}">
  								</div>
 
  								<div class="form-group col-lg-6 col-md-6 col-12">
 									<label class="col-form-label">Empresa<b class="text-danger">*</b></label>
-									<select class="form-control" name="type">
+									<select class="form-control" name="business_id">
 										<option value="">Seleccione una Empresa</option>
+										@foreach($business as $b)
+										<option value="{{ $b->id }}">{{ $b->name }}</option>
+										@endforeach
 									</select>
 								</div>
 
-								<div class="form-group col-lg-6 col-md-6 col-12">
+								<div class="form-group col-lg-12 col-md-12 col-12">
  									<label class="col-form-label">Dirección<b class="text-danger">*</b></label>
  									<input class="form-control" type="text" name="address" required placeholder="Introduzca una dirección" value="{{ old('address') }}">
  								</div>

@@ -1,6 +1,6 @@
  @extends('layouts.admin')
 
-@section('title', 'Lista de empresas')
+@section('title', 'Lista de Bancos')
 
 @section('links')
 <link rel="stylesheet" type="text/css" href="{{ asset('/admins/vendor/table/datatable/datatables.css') }}">
@@ -20,7 +20,7 @@
 			<div class="widget-header">
 				<div class="row">
 					<div class="col-xl-12 col-md-12 col-sm-12 col-12">
-						<h4>Lista de empresas</h4>
+						<h4>Lista de Bancos</h4>
 					</div>                 
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="text-right">
-							<a href="{{ route('empresas.create') }}" class="btn btn-primary">Agregar Empresas</a>
+							<a href="{{ route('bancos.create') }}" class="btn btn-primary">Agregar</a>
 						</div>
 
 						<div class="table-responsive mb-4 mt-4">
@@ -38,30 +38,26 @@
 									<tr>
 										<th>#</th>
 										<th>Nombre</th>
-										<th>Teléfono</th>
-										<th>Dirección</th>
-										<th>Cargo</th>
+										<th>Código</th>
 										<th>Estado</th>
 										<th>Acciones</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($businesses as $business)
+									@foreach($banks as $bank)
 									<tr>
 										<td>{{ $num++ }}</td>
-										<td>{{ $business->name }}</td>
-										<td>{{ $business->phone }}</td>
-										<td>{{ $business->address }}</td>
-										<td>{{ $business->specialty }}</td>
-										<td>{!! state($business->state) !!}</td>
+										<td>{{ $bank->name }}</td>
+										<td>{{ $bank->code }}</td>
+										<td>{!! state($bank->state) !!}</td>
 										<td>
 											<div class="btn-group" role="group">
-												<a href="{{ route('empleados', ['slug' => $business->slug]) }}" class="btn btn-primary btn-sm bs-tooltip" title="Empleados"><i class="fa fa-users"></i></a>
-												<a href="{{ route('empresas.edit', ['slug' => $business->slug]) }}" class="btn btn-info btn-sm bs-tooltip" title="Editar"><i class="fa fa-edit"></i></a>
-												@if($business->state==1)
-												<button type="button" class="btn btn-danger btn-sm bs-tooltip" title="Desactivar" onclick="deactiveBusiness('{{ $business->slug }}')"><i class="fa fa-power-off"></i></button>
+												
+												<a href="{{ route('bancos.edit', ['slug' => $bank->slug]) }}" class="btn btn-info btn-sm bs-tooltip" title="Editar"><i class="fa fa-edit"></i></a>
+												@if($bank->state==1)
+												<button type="button" class="btn btn-danger btn-sm bs-tooltip" title="Desactivar" onclick="deactiveBank('{{ $bank->slug }}')"><i class="fa fa-power-off"></i></button>
 												@else
-												<button type="button" class="btn btn-success btn-sm bs-tooltip" title="Activar" onclick="activeBusiness('{{ $business->slug }}')"><i class="fa fa-check"></i></button>
+												<button type="button" class="btn btn-success btn-sm bs-tooltip" title="Activar" onclick="activeBank('{{ $bank->slug }}')"><i class="fa fa-check"></i></button>
 												@endif
 											</div>
 										</td>
@@ -79,18 +75,18 @@
 
 </div>
 
-<div class="modal fade" id="deactiveBusiness" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="deactiveBank" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">¿Estás seguro de que quieres desactivar esta Empresa?</h5>
+				<h5 class="modal-title">¿Estás seguro de que quieres desactivar esta Categoría?</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
-				<form action="#" method="POST" id="formDeactiveBusiness">
+				<form action="#" method="POST" id="formDeactiveBank">
 					@csrf
 					@method('PUT')
 					<button type="submit" class="btn btn-primary">Desactivar</button>
@@ -100,18 +96,18 @@
 	</div>
 </div>
 
-<div class="modal fade" id="activeBusiness" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="activeBank" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">¿Estás seguro de que quieres activar esta Empresa?</h5>
+				<h5 class="modal-title">¿Estás seguro de que quieres activar esta Categoría?</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
-				<form action="#" method="POST" id="formActiveBusiness">
+				<form action="#" method="POST" id="formActiveBank">
 					@csrf
 					@method('PUT')
 					<button type="submit" class="btn btn-primary">Activar</button>
