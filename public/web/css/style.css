@@ -3381,8 +3381,9 @@ input[type="button"].btn-block {
     text-decoration: none; }
   .nav-link {
     color: #6c757d;
-    pointer-events: none;
-    cursor: default; }
+    /*pointer-events: none;*/
+   /* cursor: default;*/ 
+  }
 
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }

@@ -74,5 +74,29 @@ class WebController extends Controller
         return view('web.rental', compact('section'));
     }
 
+    public function myHouseholds()
+    {
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.myHouseholds', compact('section'));
+    }
+
+    public function myPayments()
+    {
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.payments', compact('section'));
+    }
+
+    public function myServices()
+    {
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.myServices', compact('section'));
+    }
+
+    public function myPurchases($n)
+    {
+        $section = Section::where('id', '=', '1')->firstOrFail();
+        return view('web.myPurchases', compact('section', 'n'));
+    }
+
    
 }

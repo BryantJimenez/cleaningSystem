@@ -7,8 +7,7 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>@yield('title')</title>
 
-	{{-- MAPA --}}
-	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+	
 
 	<link href="{{ asset('/web/css/open-iconic-bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('/web/css/animate.css') }}" rel="stylesheet">
@@ -59,8 +58,7 @@
 	<script src="{{ asset('/web/js/aos.js') }}"></script>
 	<script src="{{ asset('/web/js/jquery.animateNumber.min.js') }}"></script>
 	<script src="{{ asset('/web/js/scrollax.min.js') }}"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="{{ asset('/web/js/google-map.js') }}"></script>
+	
 	<script type="text/javascript" src="{{ asset('/web/js/main.js') }}"></script>
 
 	@include('admin.partials.notifications')

@@ -35,6 +35,10 @@ Route::group(['middleware' => ['session_verify']], function () {
 	Route::get('/carrito', 'WebController@shoppingCart')->name('cart');
 	Route::get('/compra', 'WebController@purchase')->name('purchase');
 	Route::get('/alquiler', 'WebController@rental')->name('rental');
+	Route::get('/mis-viviendas', 'WebController@myHouseholds')->name('my.households');
+	Route::get('/mis-pagos', 'WebController@myPayments')->name('my.payments');
+	Route::get('/mis-servicios', 'WebController@myServices')->name('my.services');
+	Route::get('/mis-compras/{n}', 'WebController@myPurchases')->name('my.purchases');
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -138,6 +142,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/viviendas/{slug}', 'HouseholdController@update')->name('viviendas.update');
 	Route::put('/admin/viviendas/{slug}/activar', 'HouseholdController@activate')->name('viviendas.activate');
 	Route::put('/admin/viviendas/{slug}/desactivar', 'HouseholdController@deactivate')->name('viviendas.deactivate');
+	Route::get('/admin/viviendas/mis/viviendas', 'HouseholdController@myHouseholds')->name('mis.viviendas');
 
 	//Opiniones
 	Route::get('/admin/opiniones', 'OpinionController@index')->name('opiniones.index');
@@ -199,6 +204,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/servicios/{slug}', 'ServiceController@update')->name('servicios.update');
 	Route::put('/admin/servicios/{slug}/activar', 'ServiceController@activate')->name('servicios.activate');
 	Route::put('/admin/servicios/{slug}/desactivar', 'ServiceController@deactivate')->name('servicios.deactivate');
+	Route::get('/admin/servicios/mis/servicios', 'ServiceController@myServices')->name('mis.servicios');
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {

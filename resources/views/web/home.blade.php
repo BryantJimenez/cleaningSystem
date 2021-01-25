@@ -2,6 +2,12 @@
 
 @section('title', 'Cuidamos Tu Casa')
 
+@section('links')
+{{-- MAPA --}}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+@endsection
+
+
 
 @section('content')
 
@@ -11,33 +17,49 @@
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
             <div class="col-md-8 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }"> <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{ $section->title }}</h1>
                 <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{{ $section->subtitle }}</p>
-                <div><a href="{{ route('register') }}"><button class="text-center btn btn-primary py-3 px-5 mr-5">Registrarse</button></a> <a href="{{ route('login') }}"><button class="text-center btn btn-primary py-3 px-5">Iniciar Sesión</button></a></div>
+                @guest
+                <div>
+                    <a href="{{ route('register') }}"><button class="text-center btn btn-primary py-3 px-5 mr-5">Registrarse</button></a> 
+
+                    <a href="{{ route('login') }}"><button class="text-center btn btn-primary py-3 px-5">Iniciar Sesión</button></a>
+                </div>
+                @else
+                <div>
+                    <a href="{{ route('admin') }}"><button class="text-center btn btn-primary py-3 px-5">Ir al Panel Administrativo</button></a>
+                </div>
+                @endguest
             </div>
-            
+
         </div>
-        
-    </div>
-</section>
+    </section>
 
 
-<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="section-counter" data-section="about">
-    <div class="container">
-        <div class="row d-flex">
+    <section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="section-counter" data-section="about">
+        <div class="container">
+            <div class="row d-flex">
 
-            <div class="col-md-6 col-lg-12 pl-lg-5 py-5">
-                <div class="row justify-content-start pb-3">
-                  <div class="col-md-12 heading-section ftco-animate">
-                    <span class="subheading">Nosotros</span>
-                    <h2 class="mb-4">Sobre Nosotros</h2>
-                    {!! $section->about !!}
+                <div class="col-md-6 col-lg-12 pl-lg-5 py-5">
+                    <div class="row justify-content-start pb-3">
+                      <div class="col-md-12 heading-section ftco-animate">
+                        <span class="subheading">Nosotros</span>
+                        <h2 class="mb-4">Sobre Nosotros</h2>
+                        {!! $section->about !!}
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 col-lg-4 justify-content-center counter-wrap ftco-animate d-flex">
+                    <div class="block-18 text-center p-4 mb-4 align-self-stretch d-flex">
+                      <div class="text">
+                        <strong class="number" data-number="100">0</strong>%
+                        <span>Profesionales</span>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-              <div class="col-md-6 col-lg-4 justify-content-center counter-wrap ftco-animate d-flex">
-                <div class="block-18 text-center p-4 mb-4 align-self-stretch d-flex">
+            <div class="col-md-6 col-lg-4 justify-content-center counter-wrap ftco-animate d-flex">
+                <div class="block-18 text-center py-4 px-3 mb-4 align-self-stretch d-flex">
                   <div class="text">
                     <strong class="number" data-number="100">0</strong>%
-                    <span>Profesionales</span>
+                    <span>Transparencia</span>
                 </div>
             </div>
         </div>
@@ -45,18 +67,10 @@
             <div class="block-18 text-center py-4 px-3 mb-4 align-self-stretch d-flex">
               <div class="text">
                 <strong class="number" data-number="100">0</strong>%
-                <span>Transparencia</span>
+                <span>Compromiso</span>
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-4 justify-content-center counter-wrap ftco-animate d-flex">
-        <div class="block-18 text-center py-4 px-3 mb-4 align-self-stretch d-flex">
-          <div class="text">
-            <strong class="number" data-number="100">0</strong>%
-            <span>Compromiso</span>
-        </div>
-    </div>
-</div>
 
 </div>
 </div>
@@ -347,4 +361,6 @@
 <script type="text/javascript" src="{{ asset('/admins/vendor/lightgallery/lg-thumbnail.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/admins/vendor/lightgallery/lg-fullscreen.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/admins/vendor/lightgallery/lg-zoom.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ asset('/web/js/google-map.js') }}"></script>
 @endsection

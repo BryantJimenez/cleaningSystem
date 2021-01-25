@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lastname');
+            $table->bigInteger('contract_id')->unsigned()->nullable();
             $table->string('photo')->default('usuario.png');
             $table->string('slug')->unique();
             $table->string('phone')->nullable();
@@ -29,6 +30,9 @@ class CreateUsersTable extends Migration
             $table->enum('type', [1, 2, 3])->default(3);
             $table->rememberToken();
             $table->timestamps();
+
+             #Relations
+            $table->foreign('contract_id')->references('id')->on('contracts')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

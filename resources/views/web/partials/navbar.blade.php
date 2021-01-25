@@ -5,12 +5,23 @@
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
+	      <div class="collapse navbar-collapse" >
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="{{ route('home') }}" class="nav-link"><span>Inicio</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" ><span>Servicios</span></a></li>
-	          <li class="nav-item"><a href="#" class="nav-link" ><span>Viviendas</span></a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">¡Bienvenido!</a></li>
+	          @guest
+	          <li class="nav-item cta"><a href="#" class="nav-link">
+	          ¡Bienvenido!
+	      	  </a>
+	      	  <li class="nav-item"><a href="{{ route('services') }}" class="nav-link" ><span>Servicios</span></a></li>
+		      <li class="nav-item"><a href="{{ route('households') }}" class="nav-link" ><span>Viviendas</span></a></li>
+	          @else
+	          <li class="nav-item"><a href="{{ route('my.households')}}" class="nav-link" ><span>Mis Viviendas</span></a></li>
+	          <li class="nav-item"><a href="{{ route('my.payments')}}" class="nav-link" ><span>Mis Pagos</span></a></li>
+	          <li class="nav-item cta"><a href="#" class="nav-link">
+	          {{ Auth::user()->name." ".Auth::user()->lastname }}
+	      	  </a>
+	      	  @endguest
+	      	</li>
 	          {{-- <li class="nav-item cta"><a href="#" class="nav-link"><span class="ion-ios-cart"></span></a></li>
  --}}
 	        </ul>

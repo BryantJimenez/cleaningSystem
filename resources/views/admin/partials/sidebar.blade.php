@@ -38,23 +38,12 @@
                 </a>
             </li>
 
-            <li class="menu {{ active('admin/vivienda', 0) }}">
-                <a href="#gallery" data-toggle="collapse" aria-expanded="{{ menu_expanded('admin/vivienda', 0) }}" class="dropdown-toggle">
+            <li class="menu {{ active('admin/viviendas', 0) }}">
+                <a href="{{ route('viviendas.index') }}" aria-expanded="{{ menu_expanded('admin/viviendas', 0) }}" class="dropdown-toggle">
                     <div class="">
                         <span><i class="fa fa-building"></i> Viviendas</span>
                     </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
                 </a>
-                <ul class="collapse submenu list-unstyled {{ submenu('admin/vivienda', 0) }} }}" id="gallery" data-parent="#accordionExample">
-                    <li {{ submenu('admin/vivienda/venta') }}>
-                        <a href="#"> Venta</a>
-                    </li>
-                    <li {{ submenu('admin/vivienda/alquiler') }}>
-                        <a href="#"> Alquiler</a>
-                    </li>                           
-                </ul>
             </li>
 
             <li class="menu {{ active('admin/servicios', 0) }}">

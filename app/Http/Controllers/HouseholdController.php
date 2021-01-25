@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Hosuehold;
+use App\Household;
 use Illuminate\Http\Request;
 
-class HosueholdController extends Controller
+class HouseholdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -83,5 +83,9 @@ class HosueholdController extends Controller
     public function destroy(Hosuehold $hosuehold)
     {
         //
+    }
+     public function myHouseholds()
+    {
+        return view('admin.households.myHouseholds');
     }
 }

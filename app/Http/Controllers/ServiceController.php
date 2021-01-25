@@ -19,7 +19,7 @@ class ServiceController extends Controller
         $services = Service::all();
         return view('admin.services.index', compact( 'services', 'num'));
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +29,8 @@ class ServiceController extends Controller
     {
         return view('admin.services.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -156,5 +158,10 @@ class ServiceController extends Controller
         } else {
             return redirect()->route('servicios.index')->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.']);
         }
+    }
+
+    public function myServices()
+    {
+        return view('admin.services.myServices');
     }
 }
