@@ -47,8 +47,8 @@ class PaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug) {
-        $payment = Payment::where('slug', $slug)->firstOrFail();
-        return view('admin.payments.show', compact('payment'));
+        // $payment = Payment::where('slug', $slug)->firstOrFail();
+        return view('admin.payments.show');
     }
 
     /**

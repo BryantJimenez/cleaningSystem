@@ -128,8 +128,41 @@
 				<a href="{{ route('purchase') }}"><button class="text-center btn btn-primary py-3 px-5 mr-2"> Comprar <span class="ion-ios-cart"></span></button></a><a href="{{ route('rental') }}"><button class="text-center btn btn-success py-3 px-5"> Alquilar <span class="ion-ios-cart"></span></button></a>
 			</div>
 		</div>
+
+		<div class="row d-flex contact-info">
+          <div class="col-md-6 col-lg-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Info</h3>
+	            <p>Descripcion</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Info</h3>
+	            <p>Descripcion</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Info</h3>
+	            <p>Descripcion</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Info</h3>
+	            <p>Descripcion</p>
+	          </div>
+          </div>
+        </div>
+
+
+
+
+
 	</div>
 </section>
+
 
 
 
