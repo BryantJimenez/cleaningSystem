@@ -19,6 +19,7 @@ class CreateContractsTable extends Migration
             $table->string('slug')->unique();
             $table->float('price', 10, 2)->default(0.00);
             $table->enum('state', [0, 1])->default(1);
+            $table->text('description');
             $table->timestamps();
         });
     }

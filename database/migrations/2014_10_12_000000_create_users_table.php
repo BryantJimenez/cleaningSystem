@@ -18,9 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->bigInteger('contract_id')->unsigned()->nullable();
+            $table->bigInteger('province_id')->unsigned()->nullable();
+            $table->bigInteger('city_id')->unsigned()->nullable();
             $table->string('photo')->default('usuario.png');
             $table->string('slug')->unique();
             $table->string('phone')->nullable();
+            $table->string('phone_house')->nullable();
             $table->string('email')->unique();
             $table->text('address');
             $table->string('dni');
@@ -33,6 +36,8 @@ class CreateUsersTable extends Migration
 
              #Relations
             $table->foreign('contract_id')->references('id')->on('contracts')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

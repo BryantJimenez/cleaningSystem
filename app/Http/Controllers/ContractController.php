@@ -30,6 +30,8 @@ class ContractController extends Controller
         return view('admin.contracts.create');
     }
 
+   
+
     /**
      * Store a newly created resource in storage.
      *

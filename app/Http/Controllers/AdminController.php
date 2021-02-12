@@ -21,8 +21,6 @@ class AdminController extends Controller
         return view('admin.home', compact( 'users'));
     }
 
-    
-
     public function profile() {
         return view('admin.profile');
     }
@@ -68,4 +66,30 @@ class AdminController extends Controller
             return redirect()->back()->with(['alert' => 'lobibox', 'type' => 'error', 'title' => 'Edición fallida', 'msg' => 'Ha ocurrido un error durante el proceso, intentelo nuevamente.'])->withInputs();
         }
     }
+
+     public function contract(){
+        return view('admin.register.contract');
+    }
+
+    public function info(){
+        return view('admin.register.info');
+    }
+
+    public function company(){
+        return view('admin.register.companies');
+    }
+
+    public function state(){
+        return view('admin.register.state');
+    }
+
+    public function photo(){
+        $user = User::where('id', Auth::user()->id)->firstOrFail();
+        $data = array('contract_id' => '1');
+        $user->fill($data)->save();
+        return view('admin.register.photos');
+    }
+
+
+
 }

@@ -9,11 +9,11 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="{{ route('home') }}" class="nav-link"><span>Inicio</span></a></li>
 	          @guest
+	      	  <li class="nav-item"><a href="{{ route('services') }}" class="nav-link" ><span>Servicios</span></a></li>
+		      <li class="nav-item"><a href="{{ route('households') }}" class="nav-link" ><span>Viviendas</span></a></li>
 	          <li class="nav-item cta"><a href="#" class="nav-link">
 	          ¡Bienvenido!
 	      	  </a>
-	      	  <li class="nav-item"><a href="{{ route('services') }}" class="nav-link" ><span>Servicios</span></a></li>
-		      <li class="nav-item"><a href="{{ route('households') }}" class="nav-link" ><span>Viviendas</span></a></li>
 	          @else
 	          <li class="nav-item"><a href="{{ route('my.households')}}" class="nav-link" ><span>Mis Viviendas</span></a></li>
 	          <li class="nav-item"><a href="{{ route('my.payments')}}" class="nav-link" ><span>Mis Pagos</span></a></li>

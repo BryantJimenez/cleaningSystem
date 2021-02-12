@@ -28,7 +28,7 @@
                     </div>
                 </a>
             </li>
-            @endif
+            
 
             <li class="menu {{ active('admin/usuarios', 0) }}">
                 <a href="{{ route('usuarios.index') }}" aria-expanded="{{ menu_expanded('admin/usuarios', 0) }}" class="dropdown-toggle">
@@ -101,6 +101,40 @@
                     </li>                          
                 </ul>
             </li>
+
+            @elseif(Auth::user()->type=="3")
+            <li class="menu {{ active('admin/perfil', 0) }}">
+                <a href="{{ route('profile') }}" aria-expanded="{{ menu_expanded('admin/perfil', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-user"></i> Perfil</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu {{ active('admin/viviendas', 0) }}">
+                <a href="{{ route('viviendas.index') }}" aria-expanded="{{ menu_expanded('admin/viviendas', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-building"></i> Viviendas</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu {{ active('admin/servicios', 0) }}">
+                <a href="{{ route('servicios.index') }}" aria-expanded="{{ menu_expanded('admin/servicios', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-briefcase"></i> Servicios</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="menu {{ active('admin/pagos', 0) }}">
+                <a href="{{ route('pagos.index') }}" aria-expanded="{{ menu_expanded('admin/pagos', 0) }}" class="dropdown-toggle">
+                    <div class="">
+                        <span><i class="fa fa-credit-card"></i> Pagos</span>
+                    </div>
+                </a>
+            </li>
+            @endif
 
            
         </ul>

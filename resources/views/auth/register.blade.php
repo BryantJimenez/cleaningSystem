@@ -41,7 +41,9 @@
         <div class="row no-gutters block-9">
           <div class="col-md-12 order-md-last d-flex">
 
-            <form class="bg-light p-5 contact-form" action="#" method="POST" id="formCustomer" enctype="multipart/form-data">
+            <form class="bg-light p-5 contact-form" action="{{route('usuarios.store')}}" method="POST" id="formCustomer" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <p>PASO 1: REGISTRO DE DATOS PERSONALES</p>
                 <p>Campos obligatorios (<b class="text-danger">*</b>)</p>
                 <div class="row">
                     <div class="form-group col-md-6">
@@ -50,43 +52,31 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">Nombre<b class="text-danger">*</b></label>
-                        <input type="text" class="form-control" placeholder="Introduzca su nombre">
+                        <input type="text" class="form-control" name="name" placeholder="Introduzca su nombre">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">Apellido<b class="text-danger">*</b></label>
-                        <input type="text" class="form-control" placeholder="Introduzca su apellido">
+                        <input type="text" class="form-control" name="lastname" placeholder="Introduzca su apellido">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">DNI<b class="text-danger">*</b></label>
-                        <input type="text" class="form-control" placeholder="Introduzca su dni">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label">Ciudad<b class="text-danger">*</b></label>
-                        <select class="form-control">
-                            <option value="">Seleccione su Ciudad</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label">Provincia<b class="text-danger">*</b></label>
-                        <select class="form-control">
-                            <option value="">Seleccione su provincia</option>
-                        </select>
+                        <input type="text" class="form-control" name="dni" placeholder="Introduzca su dni">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">Teléfono Fijo<b class="text-danger">*</b></label>
-                        <input type="text" class="form-control" placeholder="Introduzca su teléfono fijo">
+                        <input type="text" class="form-control" name="phone_house" placeholder="Introduzca su teléfono fijo">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">Teléfono Móvil<b class="text-danger">*</b></label>
-                        <input type="text" class="form-control" placeholder="Introduzca su teléfono móvil">
+                        <input type="text" class="form-control" name="phone" placeholder="Introduzca su teléfono móvil">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="col-form-label">Correo<b class="text-danger">*</b></label>
-                        <input type="email" class="form-control" placeholder="Correo">
+                        <input type="email" class="form-control" name="email" placeholder="Correo">
                     </div>
                      <div class="form-group col-md-6">
                         <label class="col-form-label">Dirección Facturación<b class="text-danger">*</b></label>
-                        <input type="text" class="form-control" placeholder="Introduzca su dirección">
+                        <input type="text" class="form-control" name="address" placeholder="Introduzca su dirección">
                     </div>
                     <div class="form-group col-lg-6 col-md-6 col-12">
                         <label class="col-form-label">Contraseña<b class="text-danger">*</b></label>

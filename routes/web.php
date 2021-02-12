@@ -39,17 +39,20 @@ Route::group(['middleware' => ['session_verify']], function () {
 	Route::get('/mis-pagos', 'WebController@myPayments')->name('my.payments');
 	Route::get('/mis-servicios', 'WebController@myServices')->name('my.services');
 	Route::get('/mis-compras/{n}', 'WebController@myPurchases')->name('my.purchases');
+	Route::post('/usuarios', 'UserController@store')->name('usuarios.store');
 });
 
-Route::group(['middleware' => ['auth', 'admin']], function () {
+// Route::group(['middleware' => ['auth', 'admin']], function () {
 	///// ////////////////////ADMIN ///////////////////////////
 
 	// Inicio
-	Route::get('/admin', 'AdminController@index')->name('admin');
-	Route::get('/admin/perfil', 'AdminController@profile')->name('profile');
-	Route::get('/admin/perfil/editar', 'AdminController@profileEdit')->name('profile.edit');
-	Route::put('/admin/perfil/', 'AdminController@profileUpdate')->name('profile.update');
-});
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin/perfil', 'AdminController@profile')->name('profile');
+Route::get('/admin/perfil/editar', 'AdminController@profileEdit')->name('profile.edit');
+Route::put('/admin/perfil/', 'AdminController@profileUpdate')->name('profile.update');
+
+
+// });
 
 Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	// Administradores
@@ -117,6 +120,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 
 	Route::get('/admin/contratos', 'ContractController@index')->name('contratos.index');
 	Route::get('/admin/contratos/registrar', 'ContractController@create')->name('contratos.create');
+	
 	Route::post('/admin/contratos', 'ContractController@store')->name('contratos.store');
 	Route::get('/admin/contratos/{slug}', 'ContractController@show')->name('contratos.show');
 	Route::get('/admin/contratos/{slug}/editar', 'ContractController@edit')->name('contratos.edit');
@@ -134,7 +138,6 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/empleados/{slug}/desactivar', 'EmployeeController@deactivate')->name('empleados.deactivate');
 
 	//Viviendas
-	Route::get('/admin/viviendas', 'HouseholdController@index')->name('viviendas.index');
 	Route::get('/admin/viviendas/registrar', 'HouseholdController@create')->name('viviendas.create');
 	Route::post('/admin/viviendas', 'HouseholdController@store')->name('viviendas.store');
 	Route::get('/admin/viviendas/{slug}', 'HouseholdController@show')->name('viviendas.show');
@@ -142,7 +145,7 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/viviendas/{slug}', 'HouseholdController@update')->name('viviendas.update');
 	Route::put('/admin/viviendas/{slug}/activar', 'HouseholdController@activate')->name('viviendas.activate');
 	Route::put('/admin/viviendas/{slug}/desactivar', 'HouseholdController@deactivate')->name('viviendas.deactivate');
-	Route::get('/admin/viviendas/mis/viviendas', 'HouseholdController@myHouseholds')->name('mis.viviendas');
+	
 
 	//Opiniones
 	Route::get('/admin/opiniones', 'OpinionController@index')->name('opiniones.index');
@@ -204,8 +207,18 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/servicios/{slug}', 'ServiceController@update')->name('servicios.update');
 	Route::put('/admin/servicios/{slug}/activar', 'ServiceController@activate')->name('servicios.activate');
 	Route::put('/admin/servicios/{slug}/desactivar', 'ServiceController@deactivate')->name('servicios.deactivate');
-	Route::get('/admin/servicios/mis/servicios', 'ServiceController@myServices')->name('mis.servicios');
+	
 });
+
+Route::get('/admin/servicios/mis/servicios', 'ServiceController@myServices')->name('mis.servicios');
+Route::get('/admin/viviendas/mis/viviendas', 'HouseholdController@myHouseholds')->name('mis.viviendas');
+Route::get('/admin/viviendas', 'HouseholdController@index')->name('viviendas.index');
+Route::get('/admin/paso-2', 'AdminController@contract')->name('contratos');
+Route::get('/admin/paso-3', 'AdminController@info')->name('datos');
+Route::get('/admin/paso-4', 'AdminController@company')->name('companias');
+Route::get('/admin/paso-5', 'AdminController@state')->name('estado');
+Route::get('/admin/paso-6', 'AdminController@photo')->name('fotos');
+Route::get('/admin/paso-6/{num}', 'AdminController@updateP')->name('paso.update');
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
 	// Usuarios
