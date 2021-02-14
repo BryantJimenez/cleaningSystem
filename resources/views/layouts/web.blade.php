@@ -39,7 +39,7 @@
 	@include('web.partials.loader')
 
 	<!-- JQuery -->
-	<script type="text/javascript" src="{{ asset('/web/js/jquery-3.4.1.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('/web/js/jquery-3.5.1.min.js') }}"></script>
 	<!-- Bootstrap tooltips -->
 	<script type="text/javascript" src="{{ asset('/web/js/popper.min.js') }}"></script>
 	<!-- Bootstrap core JavaScript -->
@@ -49,7 +49,6 @@
 
 	<!-- Scripts -->
 	<script src="{{ asset('/web/js/jquery.min.js') }}"></script>
-	<script src="{{ asset('/web/js/jquery-3.5.1.min') }}"></script>
 	<script src="{{ asset('/web/js/jquery-migrate-3.0.1.min.js') }}"></script>
 	<script src="{{ asset('/web/js/jquery.easing.1.3.js') }}"></script>
 	<script src="{{ asset('/web/js/jquery.waypoints.min.js') }}"></script>
