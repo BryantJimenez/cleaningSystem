@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\HouseholdPay;
+use App\User;
+use App\Section;
+use App\Contract;
+use App\Bank;
+use App\Household;
 use Illuminate\Http\Request;
+use Auth;
+
 
 class HouseholdPayController extends Controller
 {

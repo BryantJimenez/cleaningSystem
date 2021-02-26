@@ -25,10 +25,7 @@
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="javascript:void(0);">Datos Personales</a></li>
 								<li class="breadcrumb-item active"><a href="javascript:void(0);">Contrato</a></li>
-								<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Datos de Vivienda</a></li>
-								<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Companias</a></li>
-								<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Estado de la vivienda</a></li>
-								<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Fotos</a></li>
+								<li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">Pago de Contrato</a></li>
 							</ol>
 						</nav>
 					</div> 
@@ -50,67 +47,27 @@
 					
 					
 					<div id="pricingWrapper" class="row">
+						@foreach($contracts as $contract)
 						<div class="col-md-6 col-lg-4">
 							<div class="card stacked mt-5">
 								<div class="card-header pt-0">
-									<span class="card-price">49 €</span>
-									<h3 class="card-title mt-3 mb-1">Estándar</h3>
+									<span class="card-price">{{$contract->price}} €</span>
+									<h3 class="card-title mt-3 mb-1">{{$contract->name}}</h3>
 								</div>
 								<div class="card-body">
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									<a href="" class="btn btn-block btn-primary mt-3">Adquirir</a>
+									{{$contract->description}}
+
+									<form action="{{route('pago')}}" method="POST">
+										@csrf
+										<input type="hidden" name="slug" value="{{$contract->slug}}">
+									<button type="submit" class="btn btn-block btn-primary mt-3">Adquirir</button>
+									</form>
 								</div>
 							</div>
 						</div>
+						@endforeach
 
-						<div class="col-md-6 col-lg-4">
-							<div class="card stacked mt-5">
-								<div class="card-header pt-0">
-									<span class="card-price">89 €</span>
-									<h3 class="card-title mt-3 mb-1">Medio</h3>
-								</div>
-								<div class="card-body">
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									<a href="" class="btn btn-block btn-primary mt-3">Adquirir</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-4">
-							<div class="card stacked mt-5">
-								<div class="card-header pt-0">
-									<span class="card-price">129 €</span>
-									<h3 class="card-title mt-3 mb-1">VIP</h3>
-								</div>
-								<div class="card-body">
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-									Descripcion<br>
-
-
-									<a href="" class="btn btn-block btn-primary mt-3">Adquirir</a>
-								</div>
-							</div>
-						</div>
-
-						<p class="lead mt-5">
-							<a class="btn btn-success" href="{{route('datos')}}" role="button">Siguiente -></a>
-						</p>
+						
 
 						
 

@@ -25,6 +25,33 @@ function typeCompany($type) {
 }
 
 
+function typePay($type) {
+	if ($type==1) {
+		return '<span class="badge badge-danger">Transferencia</span>';
+	} elseif ($type==4) {
+		return '<span class="badge badge-warning">Bizum</span>';
+	} elseif ($type==3) {
+		return '<span class="badge badge-primary">PayPal</span>';
+	} elseif ($type==2) {
+		return '<span class="badge badge-success">Tarjeta Bancaria/Internet</span>';
+	} else {
+		return '<span class="badge badge-dark">Desconocido</span>';
+	}
+}
+
+function statePay($state) {
+	if ($state==0) {
+		return '<span class="badge badge-danger">Rechazado</span>';
+	} elseif ($state==2) {
+		return '<span class="badge badge-warning">Pendiente</span>';
+	} elseif ($state==1) {
+		return '<span class="badge badge-primary">Aprobado</span>';
+	} else {
+		return '<span class="badge badge-dark">Desconocido</span>';
+	}
+}
+
+
 
 function typeUser($type, $badge=1) {
 	if ($badge==1) {
@@ -141,15 +168,7 @@ function selectArray($arrays, $selectedItems) {
 	return $selects;
 }
 
-function target($target) {
-	if ($target==1) {
-		return "En la misma Pestaña";
-	} elseif ($target==2) {
-		return "Nueva Pestaña";
-	} else {
-		return "Ninguno";
-	}
-}
+
 
 function featured($featured) {
 	if ($featured==1) {

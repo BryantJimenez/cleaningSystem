@@ -424,96 +424,213 @@ function activeVideo(slug) {
   $('#formActiveVideo').attr('action', '/admin/videos/' + slug + '/activar');
 }
 
-function deactiveCategoryGallery(slug) {
-  $("#deactiveCategoryGallery").modal();
-  $('#formDeactiveCategoryGallery').attr('action', '/admin/galeria/categorias/' + slug + '/desactivar');
-}
+$("#pool").on('change',function(){
 
-function activeCategoryGallery(slug) {
-  $("#activeCategoryGallery").modal();
-  $('#formActiveCategoryGallery').attr('action', '/admin/galeria/categorias/' + slug + '/activar');
-}
+  var selectValue = $(this).val();
+  switch (selectValue) {
 
-function deactiveGallery(slug) {
-  $("#deactiveGallery").modal();
-  $('#formDeactiveGallery').attr('action', '/admin/galeria/' + slug + '/desactivar');
-}
+    case "0":
+    $(".pool2").css('display','none');
+    break;
 
-function activeGallery(slug) {
-  $("#activeGallery").modal();
-  $('#formActiveGallery').attr('action', '/admin/galeria/' + slug + '/activar');
-}
+    case "Si":
+    $(".pool2").css('display','block');
+      //$(".pool2").fadeIn(800);
+      break;
 
-//funciones para preguntar al eliminar
-function deleteUser(slug) {
-  $("#deleteUser").modal();
-  $('#formDeleteUser').attr('action', '/admin/usuarios/' + slug);
-}
+      case "No":
+      $(".pool2").css('display','none');
+      break;
 
-function deleteBanner(slug) {
-  $("#deleteBanner").modal();
-  $('#formDeleteBanner').attr('action', '/admin/banners/' + slug);
-}
+    }
 
-function deleteBannerNew(slug) {
-  $("#deleteBannerNew").modal();
-  $('#formDeleteBannerNew').attr('action', '/admin/banners/noticias/' + slug);
-}
+  }).change();
 
-function deleteCategory(slug) {
-  $("#deleteCategory").modal();
-  $('#formDeleteCategory').attr('action', '/admin/categorias/' + slug);
-}
+$("#garage").on('change',function(){
 
-function deleteNew(slug) {
-  $("#deleteNew").modal();
-  $('#formDeleteNew').attr('action', '/admin/noticias/' + slug);
-}
+  var selectValue = $(this).val();
+  switch (selectValue) {
 
-function deleteComment(slug) {
-  $("#deleteComment").modal();
-  $('#formDeleteComment').attr('action', '/admin/comentarios/' + slug);
-}
+    case "0":
+    $(".garage2").css('display','none');
+    break;
 
-function deleteVideo(slug) {
-  $("#deleteVideo").modal();
-  $('#formDeleteVideo').attr('action', '/admin/videos/' + slug);
-}
+    case "Si":
+    $(".garage2").css('display','block');
+      //$(".garage2").fadeIn(800);
+      break;
 
-function deleteCategoryGallery(slug) {
-  $("#deleteCategoryGallery").modal();
-  $('#formDeleteCategoryGallery').attr('action', '/admin/galeria/categorias/' + slug);
-}
+      case "No":
+      $(".garage2").css('display','none');
+      break;
 
-function deleteGallery(slug) {
-  $("#deleteGallery").modal();
-  $('#formDeleteGallery').attr('action', '/admin/galeria/' + slug);
-}
+    }
 
-function deleteTournament(slug) {
-  $("#deleteTournament").modal();
-  $('#formDeleteTournament').attr('action', '/admin/ligas/' + slug);
-}
+  }).change();
 
-function deleteTeam(tournament, slug) {
-  $("#deleteTeam").modal();
-  $('#formDeleteTeam').attr('action', '/admin/ligas/' + tournament + '/equipos/' + slug);
-}
+$("#banco").on('change',function(){
 
-function deletePlayer(tournament, team, slug) {
-  $("#deletePlayer").modal();
-  $('#formDeletePlayer').attr('action', '/admin/ligas/' + tournament + '/equipos/' + team + '/jugadores/' + slug);
-}
+  var selectValue = $(this).val();
+  switch (selectValue) {
 
-function deleteStadium(slug) {
-  $("#deleteStadium").modal();
-  $('#formDeleteStadium').attr('action', '/admin/estadios/' + slug);
-}
+    case "0":
+    $(".banco").css('display','none');
+    break;
 
-function deleteMatch(slug) {
-  $("#deleteMatch").modal();
-  $('#formDeleteMatch').attr('action', '/admin/partidos/' + slug);
-}
+    case "1":
+    $(".banco").css('display','block');
+    break;
+
+    case "2":
+    $(".banco").css('display','none');
+    break;
+
+    case "3":
+    $(".banco").css('display','none');
+    break;
+
+    case "4":
+    $(".banco").css('display','none');
+    break;
+
+  }
+
+}).change();
+
+$("#alarm").on('change',function(){
+
+  var selectValue = $(this).val();
+  switch (selectValue) {
+
+    case "0":
+    $(".alarm2").css('display','none');
+    break;
+
+    case "Si":
+    $(".alarm2").css('display','block');
+      //$(".alarm2").fadeIn(800);
+      break;
+
+      case "No":
+      $(".alarm2").css('display','none');
+      break;
+
+    }
+
+  }).change();
+
+$("#electric").on('change',function(){
+
+  var selectValue = $(this).val();
+  switch (selectValue) {
+
+    case "0":
+    $(".electric2").css('display','none');
+    break;
+
+    case "Si":
+    $(".electric2").css('display','block');
+      //$(".electric2").fadeIn(800);
+      break;
+
+      case "No":
+      $(".electric2").css('display','none');
+      break;
+
+    }
+
+  }).change();
+
+$("#water").on('change',function(){
+
+  var selectValue = $(this).val();
+  switch (selectValue) {
+
+    case "0":
+    $(".water2").css('display','none');
+    break;
+
+    case "Si":
+    $(".water2").css('display','block');
+      //$(".water2").fadeIn(800);
+      break;
+
+      case "No":
+      $(".water2").css('display','none');
+      break;
+
+    }
+
+  }).change();
+
+$("#internet").on('change',function(){
+
+  var selectValue = $(this).val();
+  switch (selectValue) {
+
+    case "0":
+    $(".internet2").css('display','none');
+    break;
+
+    case "Si":
+    $(".internet2").css('display','block');
+      //$(".internet2").fadeIn(800);
+      break;
+
+      case "No":
+      $(".internet2").css('display','none');
+      break;
+
+    }
+
+  }).change();
+
+$("#sale").on('change',function(){
+
+  var selectValue = $(this).val();
+  switch (selectValue) {
+
+    case "3":
+    $(".sale2").css('display','none');
+    break;
+
+    case "1":
+    $(".sale2").css('display','block');
+      //$(".sale2").fadeIn(800);
+      break;
+
+      case "0":
+      $(".sale2").css('display','none');
+      break;
+
+    }
+
+  }).change();
+
+$("#rent").on('change',function(){
+
+  var selectValue = $(this).val();
+  switch (selectValue) {
+
+    case "3":
+    $(".rent2").css('display','none');
+    break;
+
+    case "1":
+    $(".rent2").css('display','block');
+      //$(".rent2").fadeIn(800);
+      break;
+
+      case "0":
+      $(".rent2").css('display','none');
+      break;
+
+    }
+
+  }).change();
+
+
+
 
 // funcion para cambiar el texto de ayuda en banner al cambiar el tipo
 $('#banner-type').change(function(event) {

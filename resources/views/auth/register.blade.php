@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Enviar" class="btn btn-secondary py-3 px-5">
+                    <input type="submit" value="Siguiente" class="btn btn-secondary py-3 px-5">
                 </div>
 
             </form>

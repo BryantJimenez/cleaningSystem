@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Section;
+use App\Contract;
+use App\Bank;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -68,11 +70,20 @@ class AdminController extends Controller
     }
 
      public function contract(){
-        return view('admin.register.contract');
+        $contracts = Contract::all();
+        return view('admin.register.contract', compact('contracts'));
     }
 
-    public function info(){
-        return view('admin.register.info');
+    public function pay(Request $request){
+        $slug = request('slug');
+        $con = Contract::where('slug', '=', $slug)->firstOrFail();
+        $id = $con->id;
+        $name = $con->name;
+        $price = $con->price;
+        $bank1 = Bank::where('type', '=', '1')->get();
+        $bank0 = Bank::where('type', '=', '0')->get();
+        
+        return view('admin.register.pay', compact('name', 'id', 'price', 'bank1', 'bank0'));
     }
 
     public function company(){

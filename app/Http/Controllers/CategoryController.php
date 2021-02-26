@@ -38,7 +38,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-       $count = Category::where('name', request('name'))->where('name', request('name'))->count();
+       $count = Category::where('name', request('name'))->count();
         $slug = Str::slug(request('name'), '-');
         if ($count>0) {
             $slug=$slug."-".$count;

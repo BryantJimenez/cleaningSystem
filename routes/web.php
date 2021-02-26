@@ -138,7 +138,13 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::put('/admin/empleados/{slug}/desactivar', 'EmployeeController@deactivate')->name('empleados.deactivate');
 
 	//Viviendas
-	Route::get('/admin/viviendas/registrar', 'HouseholdController@create')->name('viviendas.create');
+	Route::get('/admin/viviendas/registrar/Companias', 'HouseholdController@create2')->name('viviendas.create2');
+	Route::post('/admin/viviendas/compania', 'HouseholdController@store2')->name('viviendas.store2');
+	Route::get('/admin/viviendas/registrar/Estado', 'HouseholdController@create3')->name('viviendas.create3');
+	Route::post('/admin/viviendas/estado', 'HouseholdController@store3')->name('viviendas.store3');
+	Route::get('/admin/viviendas/registrar/Fotos', 'HouseholdController@create4')->name('viviendas.create4');
+	Route::post('/admin/viviendas/fotos', 'HouseholdController@store4')->name('viviendas.store4');
+	Route::get('/admin/viviendas/registrar/Datos-Basicos', 'HouseholdController@create1')->name('viviendas.create');
 	Route::post('/admin/viviendas', 'HouseholdController@store')->name('viviendas.store');
 	Route::get('/admin/viviendas/{slug}', 'HouseholdController@show')->name('viviendas.show');
 	Route::get('/admin/viviendas/{slug}/editar', 'HouseholdController@edit')->name('viviendas.edit');
@@ -161,7 +167,9 @@ Route::group(['middleware' => ['auth', 'superadmin']], function () {
 	Route::get('/admin/pagos', 'PaymentController@index')->name('pagos.index');
 	Route::get('/admin/pagos/registrar', 'PaymentController@create')->name('pagos.create');
 	Route::post('/admin/pagos', 'PaymentController@store')->name('pagos.store');
+	Route::post('/admin/pagos/contratos', 'PaymentController@storeC')->name('pagos.store.contratos');
 	Route::get('/admin/pagos/{slug}', 'PaymentController@show')->name('pagos.show');
+	Route::get('/admin/pagos/{slug}', 'PaymentController@showC')->name('pagos.show.C');
 	Route::get('/admin/pagos/{slug}/editar', 'PaymentController@edit')->name('pagos.edit');
 	Route::put('/admin/pagos/{slug}', 'PaymentController@update')->name('pagos.update');
 	Route::put('/admin/pagos/{slug}/activar', 'PaymentController@activate')->name('pagos.activate');
@@ -214,7 +222,7 @@ Route::get('/admin/servicios/mis/servicios', 'ServiceController@myServices')->na
 Route::get('/admin/viviendas/mis/viviendas', 'HouseholdController@myHouseholds')->name('mis.viviendas');
 Route::get('/admin/viviendas', 'HouseholdController@index')->name('viviendas.index');
 Route::get('/admin/paso-2', 'AdminController@contract')->name('contratos');
-Route::get('/admin/paso-3', 'AdminController@info')->name('datos');
+Route::post('/admin/paso-3', 'AdminController@pay')->name('pago');
 Route::get('/admin/paso-4', 'AdminController@company')->name('companias');
 Route::get('/admin/paso-5', 'AdminController@state')->name('estado');
 Route::get('/admin/paso-6', 'AdminController@photo')->name('fotos');

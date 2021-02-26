@@ -38,7 +38,6 @@
 									<tr>
 										<th>#</th>
 										<th>Responsable</th>
-										<th>Tipo</th>
 										<th>Transaccion</th>
 										<th>Total</th>
 										<th>Compra</th>
@@ -48,27 +47,39 @@
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($payments as $p)
 									<tr>
-										<td>1</td>
-										<td>Marialaura Rangel</td>
-										<td>Compra</td>
-										<td>PayPal</td>
-										<td>12.000 $</td>
-										<td>Vivienda</td>
-										<td>25-10-2020</td>
-										<td><span class="badge badge-warning">En Espera</span></td>
+										<td>{{$num++}}</td>
+										<td>{{$p->user->name." ".$p->user->lastname}}</td>
+										<td>{!! typePay($p->type_pay) !!}</td>
+										<td>{{$p->total}}</td>
+										<td>
+											@if($p->contract_id!==NULL)
+											Pago de Contrato
+											@elseif($p->service_id!==NULL)
+											Pago de Servicio
+											@else
+											Pago de Vivienda
+											@endif
+										</td>
+										<td>{{$p->date}}</td>
+										<td>{!! statePay($p->state) !!}</td>
 										<td>
 											<div class="btn-group" role="group">
-												<a href="{{ route('pagos.show', ['slug' => 1]) }}" class="btn btn-primary btn-sm bs-tooltip" title="Perfil"><i class="fa fa-user"></i></a>
-												<a href="#" class="btn btn-info btn-sm bs-tooltip" title="Editar"><i class="fa fa-edit"></i></a>{{-- 
-												@if($admin->state==1) --}}
+												@if($p->contract_id!==NULL)
+												<a href="{{ route('pagos.show.C', ['id' => $p->id]) }}" class="btn btn-primary btn-sm bs-tooltip" title="Ver Mas"><i class="fa fa-user"></i></a>
+												@else
+												<a href="{{ route('pagos.show', ['slug' => $p->slug]) }}" class="btn btn-primary btn-sm bs-tooltip" title="Ver Mas"><i class="fa fa-user"></i></a>
+												@endif
+												@if($p->state==2)
 												<button type="button" class="btn btn-success btn-sm bs-tooltip" title="Aprobar"><i class="fa fa-check"></i></button>
 												<button type="button" class="btn btn-danger btn-sm bs-tooltip" title="Denegar" ><i class="fa fa-power-off"></i></button>
-												{{-- @else --}}
-												{{-- @endif --}}
+												@endif
+												
 											</div>
 										</td>
 									</tr>
+									@endforeach
 									
 								</tbody>
 							</table>

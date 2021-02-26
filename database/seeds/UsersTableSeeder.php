@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'address' => 'My House',
             'dni' => '12345678',
         	'state' => "1",
-            'type' => 1
+            'type' => '1'
         ]);
     }
 }

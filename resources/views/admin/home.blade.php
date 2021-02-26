@@ -31,7 +31,7 @@
 
             @elseif(Auth::user()->contract_id!=NULL)
 
-            @if(Auth::user()->type==1 && Auth::user()->type==2)
+            @if(Auth::user()->type==='1' || Auth::user()->type==='2')
             <div class="row">
                <div class="col-xl-5 col-12 mb-3"> 
                   <div class="d-flex justify-content-start text-white card-left-radius border-solid border-width-5px border-grey"> 
@@ -314,7 +314,7 @@
     </div>
 </div>
 </div>
-@elseif(Auth::user()->type==3)
+@else
 <div class="row">
    <div class="col-xl-5 col-12 mb-3"> 
       <div class="d-flex justify-content-start text-white card-left-radius border-solid border-width-5px border-grey"> 

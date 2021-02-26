@@ -15,14 +15,17 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug')->unique();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->bigInteger('contract_id')->unsigned()->nullable();
             $table->bigInteger('service_id')->unsigned()->nullable();
             $table->bigInteger('household_id')->unsigned()->nullable();
             $table->bigInteger('bank_id')->unsigned()->nullable();
+            $table->bigInteger('issue_bank')->unsigned()->nullable();
             $table->enum('type_pay', [1, 2, 3, 4]);
-            $table->enum('state', [0, 1])->default(1);
+            $table->enum('state', [0, 1, 2])->default(2);
             $table->float('total', 10, 2)->default(0.00);
             $table->string('reference')->nullable();
+            $table->string('date');
             $table->timestamps();
 
             //Type Pay
@@ -32,11 +35,17 @@ class CreatePaymentsTable extends Migration
             // 4 = Bizum
 
             #Relations
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('household_id')->references('id')->on('households')->onDelete('cascade')->onUpdate('cascade');
             
             $table->foreign('bank_id')->references('id')->on('banks')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('issue_bank')->references('id')->on('banks')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('contract_id')->references('id')->on('contracts')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

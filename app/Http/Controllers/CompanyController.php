@@ -16,7 +16,7 @@ class CompanyController extends Controller
     public function index()
     {
         $num=1;
-        $companies = Company::all();
+        $companies = Company::where('name', '!=', 'Ninguna')->where('state', '=', '1')->get();
         return view('admin.companies.index', compact( 'companies', 'num'));
     }
 

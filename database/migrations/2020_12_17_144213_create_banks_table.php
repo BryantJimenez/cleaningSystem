@@ -19,7 +19,12 @@ class CreateBanksTable extends Migration
             $table->string('code');
             $table->string('slug')->unique();
             $table->enum('state', [0, 1])->default(1);
+            $table->enum('type', [0, 1]);
             $table->timestamps();
+
+            //Tipo
+            //0 = No lo posee la empresa
+            //1 = Si lo posee la empresa
         });
     }
 

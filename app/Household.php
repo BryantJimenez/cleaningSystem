@@ -28,14 +28,16 @@ class Household extends Model
 		'contract_id',
 		'square_meter_h',
 		'square_meter_p',
-		'garage',
 		'gararge_number',
 		'alarm_company_id',
 		'electric_company_id',
 		'water_company_id',
 		'phone_company_id',
 		'administrator_name',
-		'administrator_phone'
+		'administrator_phone',
+		'pool_id',
+		'seat_number',
+		'contract_agent'
 	]; 
 
 	public function business() {
